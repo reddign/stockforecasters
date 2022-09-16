@@ -1,18 +1,10 @@
 Blake Hildebrand- Beginner user page - Incomplete
 
-Nathan Griffin- Intermediate user page
-I look at stocks and the market in my free time, but never know when or if I should invest in certain stocks.
-Being able to see the trend line and make a decision based off of it is what I am looking for in a stock forecaster.
-Knowing when the best time to invest would also be helpful. Do I invest once it starts dropping or when it just begins to rise? 
-I only look at big companies on the stock market because I don’t trust smaller companies to be able to grow on the market.
-A webpage that would help me make decisions would be very useful. 
+Joe Kutteh- Advanced user page - Incomplete
 
-Joe Kutteh- Advanced user page
-I have been trading stocks for many years. I spend a lot of time researching and reading about stocks. 
-I have been looking for a website that predicts a stocks future price. 
-I would like to see the stocks history and the future predictions on the same graph. 
-Displaying multiple prediction algorithms in different colors would also be useful. 
-I want to see all the data regarding the specific stock like PE, dividend, 52W high, 52W low, market cap, etc. 
-I like using different stock indicators to help me study a stock. Having these indicators on the website would be a great feature. 
-I think recommending articles relevant to the specific stock would benefit all users as well. 
-I track a lot of stocks so having a user specific watchlist would be a great feature.
+Nathan Griffin- Intermediate user page - 
+I look at stocks and the market in my free time, but never know when or if I should invest in certain stocks.
+ Being able to see the trend line and make a decision based off of it is what I am looking for in a stock forecaster.
+  Knowing when the best time to invest would also be helpful. Do I invest once it starts dropping or when it just begins to rise? 
+  I only look at big companies on the stock market because I don’t trust smaller companies to be able to grow on the market.
+A webpage that would help me make decisions would be very useful. 
