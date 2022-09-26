@@ -7,8 +7,4 @@ $stock_data = json_decode(file_get_contents($url), true);
 $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
 echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
 
-
-$html = file_get_contents('https://weather.com');
-echo $html;
-
 ?>
