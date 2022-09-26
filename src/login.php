@@ -14,9 +14,7 @@ display_small_page_heading("Login","");
     </form>
     <button type="button"> Login </button> <br> <br> <br> <br>
 
-    Don't have an account yet? <br> <br>
-
-    <a href="createAccount.php"> <button type="button"> Create one here! </button> </a>
+    <a href="createAccount.php"> <button type="button"> Don't have an account yet? Create one here! </button> </a>
 
     
 
