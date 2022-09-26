@@ -12,7 +12,7 @@ display_small_page_heading("Login","");
         <label for="lname">Password: </label>
         <input type="text" id="password" name="password"> <br> <br>
     </form>
-    <button type="button"> Login </button> <br> <br> <br> <br>
+    <button type="button"> Login </button> <br> <br>
 
     <a href="createAccount.php"> <button type="button"> Don't have an account yet? Create one here! </button> </a>
 
