@@ -25,4 +25,4 @@ mytime=setTimeout('display_ct6()',refresh)
 }
 display_c6()
 </script>
-<span id='ct6'></span>
+<h id='ct6'></h>
