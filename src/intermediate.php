@@ -2,7 +2,7 @@
 require("functions/basic_html_functions.php");
 require("includes/header.php");
 display_small_page_heading("Intermediate","");
-
+?>
 
 
 <html>
@@ -11,6 +11,6 @@ display_small_page_heading("Intermediate","");
     </form>
 </html>
 
-
+<?PHP
 require("includes/footer.php");
 ?>
