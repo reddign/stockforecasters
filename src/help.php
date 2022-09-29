@@ -5,7 +5,12 @@ display_small_page_heading("Help","");
 ?>
 
 <html>
-    <h5>help page stuff here</h5>
+    <h5>This website is designed for all investors of all skill levels.
+        On the left side of the website is a navagation bar.
+        Each page presents their own features specific custom to the user.
+        Users have the ability to create an account. This will allow them to save stocks to a watchlist for easy access.
+
+    </h5>
 </html>
 
 <?PHP
