@@ -12,6 +12,8 @@
     <a href="<?php echo $path; ?>intermediate.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Intermediate</a> 
     <a href="<?php echo $path; ?>advanced.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Advanced</a> 
     <a href="<?php echo $path; ?>about.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a>
+    <a href="<?php echo $path; ?>help.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Help</a>
+
 
   </div>
 
