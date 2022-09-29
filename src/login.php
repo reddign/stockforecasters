@@ -8,9 +8,9 @@ display_small_page_heading("Login","");
     <h4> Login to your account <br> <br>
     <form> 
         <label for="username">Username: </label>
-        <input textarea name="message" rows="10" cols="30" style="border-width:3px border-style:solid; border-color:black;" type="text" id="username" name="username"> <br> <br>
+        <input textarea name="message" rows="5" cols="5" style="border-width:3px border-style:solid; border-color:black;" type="text" id="username" name="username"> <br> <br>
         <label for="lname">Password: </label>
-        <input textarea name="message" rows="10" cols="30" style="border-width:3px border-style:solid; border-color:black;"  type="password" id="password" name="password"> <br> <br>
+        <input textarea name="message" rows="5" cols="5" style="border-width:3px border-style:solid; border-color:black;"  type="password" id="password" name="password"> <br> <br>
     </form>
     <button type="button"> Login </button> <br> <br>
 
