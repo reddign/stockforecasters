@@ -8,9 +8,9 @@ display_small_page_heading("Login","");
     <h4> Login to your account <br> <br>
     <form> 
         <label for="username">Username: </label>
-        <input style="height: 40px; width:280px; border-width:3px border-style:solid; border-color:black;" type="text" id="username" name="username"> <br> <br>
+        <input style="width:250px; border-width:3px border-style:solid; border-color:black;" type="text" id="username" name="username"> <br> <br>
         <label for="lname">Password: </label>
-        <input style="border-width:3px border-style:solid; border-color:black;"  type="password" id="password" name="password"> <br> <br>
+        <input style="width:250px; border-width:3px border-style:solid; border-color:black;"  type="password" id="password" name="password"> <br> <br>
     </form>
     <button type="button"> Login </button> <br> <br>
 
