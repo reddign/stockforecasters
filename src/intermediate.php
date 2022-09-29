@@ -4,7 +4,13 @@ require("includes/header.php");
 display_small_page_heading("Intermediate","");
 
 
-<input type="text" id="Intstock" name="Intstock"> <br> <br>
- 
+
+<html>
+    <form>
+        <input type="text" id="Intstock" name="Intstock"> <br> <br>
+    </form>
+</html>
+
+
 require("includes/footer.php");
 ?>
