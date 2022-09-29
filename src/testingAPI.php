@@ -10,14 +10,13 @@ echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
 ?>
 <script>function display() {
 const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
+  "July", "August", "September", "October", "November", "December"];
 
 var x = new Date()
 var ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
 hours = x.getHours( ) % 12;
 hours = hours ? hours : 12;
-var x1=x.monthNames[date.getMonth()] + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
+var x1=x.monthNames[x.getMonth()] + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
 x1 = x1 + " - " +  hours + ":" +  x.getMinutes() + ":" +  x.getSeconds() + ":" + ampm;
 document.getElementById('ct6').innerHTML = x1;
 display();
