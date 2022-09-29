@@ -9,26 +9,20 @@ echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
 
 ?>
 
-
-<html>
-<head>
-<title>(Type a title for your page here)</title>
-<script type="text/javascript"> 
-function display_c(){
-var refresh=1000; // Refresh rate in milli seconds
-mytime=setTimeout('display_ct()',refresh)
-}
-
-function display_ct() {
+<script>function display_ct6() {
 var x = new Date()
-document.getElementById('ct').innerHTML = x;
-display_c();
+var ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
+hours = x.getHours( ) % 12;
+hours = hours ? hours : 12;
+var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
+x1 = x1 + " - " +  hours + ":" +  x.getMinutes() + ":" +  x.getSeconds() + ":" + ampm;
+document.getElementById('ct6').innerHTML = x1;
+display_c6();
  }
+ function display_c6(){
+var refresh=1000; // Refresh rate in milli seconds
+mytime=setTimeout('display_ct6()',refresh)
+}
+display_c6()
 </script>
-</head>
-
-<body onload=display_ct();>
-<span id='ct' ></span>
-
-</body>
-</html>
+<span id='ct6' style="background-color: #FFFF00"></span>
