@@ -9,7 +9,7 @@ display_small_page_heading("EC Stock Forecasters");
     <h4 style="text-align:center">
       <b>
 
-      <script>function display_ct6() {
+      <script>function display_t() {
       var x = new Date()
       var ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
       hours = x.getHours( ) % 12;
@@ -17,15 +17,16 @@ display_small_page_heading("EC Stock Forecasters");
       var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
       x1 = x1 + "  " +  hours + ":" +  x.getMinutes() + ":" +  x.getSeconds() + ampm;
       document.getElementById('ct6').innerHTML = x1;
-      display_c6();
+      display();
       }
-      function display_c6(){
+      function display(){
       var refresh=1000; // Refresh rate in milli seconds
       mytime=setTimeout('display_ct6()',refresh)
       }
-      display_c6()
+      display()
       </script>
       <span id='ct6'></span>
+      
       </b>
       <br><br> Welcome to the main page of the EC Stock Forecasters <br> <br>
     </h4>
