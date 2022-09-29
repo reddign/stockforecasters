@@ -8,6 +8,6 @@ display_small_page_heading("Help","");
     <h5>help page stuff here</h5>
 </html>
 
-<PHP
+<?PHP
 require("includes/footer.php");
 ?>
