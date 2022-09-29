@@ -19,10 +19,10 @@ x1 = x1 + " - " +  hours + ":" +  x.getMinutes() + ":" +  x.getSeconds() + ":" +
 document.getElementById('ct6').innerHTML = x1;
 display_c6();
  }
- function display_c6(){
+function display_c6(){
 var refresh=1000; // Refresh rate in milli seconds
 mytime=setTimeout('display_ct6()',refresh)
 }
 display_c6()
 </script>
-<span id='ct6' style="background-color: #FFFF00"></span>
+<span id='ct6'></span>
