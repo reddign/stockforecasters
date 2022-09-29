@@ -8,23 +8,24 @@ display_small_page_heading("EC Stock Forecasters");
   <html>
     <h4 style="text-align:center">
       <b>
-        <script>function display() {
-        var x = new Date()
-        var ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
-        hours = x.getHours( ) % 12;
-        hours = hours ? hours : 12;
-        var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
-        x1 = x1 + " - " +  hours + ":" +  x.getMinutes() + ":" +  x.getSeconds() + ":" + ampm;
-        document.getElementById('ct6').innerHTML = x1;
-        display();
-        }
-        function display(){
-        var refresh=1000; // Refresh rate in milli seconds
-        mytime=setTimeout('display()',refresh)
-        }
-        display()
-        </script>
-        <span id='ct6'></span>
+
+      <script>function display_ct6() {
+      var x = new Date()
+      var ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
+      hours = x.getHours( ) % 12;
+      hours = hours ? hours : 12;
+      var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
+      x1 = x1 + " - " +  hours + ":" +  x.getMinutes() + ":" +  x.getSeconds() + ":" + ampm;
+      document.getElementById('ct6').innerHTML = x1;
+      display_c6();
+      }
+      function display_c6(){
+      var refresh=1000; // Refresh rate in milli seconds
+      mytime=setTimeout('display_ct6()',refresh)
+      }
+      display_c6()
+      </script>
+      <span id='ct6' style="background-color: #FFFF00"></span>
       </b>
       <br><br> Welcome to the main page of the EC Stock Forecasters <br> <br>
     </h4>
