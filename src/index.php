@@ -25,7 +25,7 @@ display_small_page_heading("EC Stock Forecasters");
       }
       display_c6()
       </script>
-      <span id='ct6' style="background-color: #FFFF00"></span>
+      <span id='ct6'></span>
       </b>
       <br><br> Welcome to the main page of the EC Stock Forecasters <br> <br>
     </h4>
