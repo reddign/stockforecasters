@@ -10,8 +10,17 @@ display_small_page_heading("Create Account","");
         <label for="username">Username: </label>
         <input type="text" id="username" name="username"> <br> <br>
         <label for="lname">Password: </label>
-        <input type="text" id="password" name="password"> <br> <br>
+        <input type="password" id="password" name="password"> <br> <br>
     </form>
+
+    <label for="level">Investor Level: </label>
+    <select name="level" id="level">
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+    </select> <br> <br>
+   
+
     <button type="button"> Create </button> <br> <br> <br> <br>
     
     </h4>

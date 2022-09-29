@@ -10,13 +10,11 @@ display_small_page_heading("Login","");
         <label for="username">Username: </label>
         <input type="text" id="username" name="username"> <br> <br>
         <label for="lname">Password: </label>
-        <input type="text" id="password" name="password"> <br> <br>
+        <input type="password" id="password" name="password"> <br> <br>
     </form>
-    <button type="button"> Login </button> <br> <br> <br> <br>
+    <button type="button"> Login </button> <br> <br>
 
-    Don't have an account yet? <br> <br>
-
-    <a href="createAccount.php"> <button type="button"> Create one here! </button> </a>
+    <a href="createAccount.php"> <button type="button"> Don't have an account yet? Create one here! </button> </a>
 
     
 
