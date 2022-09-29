@@ -19,7 +19,6 @@ display_small_page_heading("Create Account","");
         <option value="Intermediate">Intermediate</option>
         <option value="Advanced">Advanced</option>
     </select> <br> <br>
-   
 
     <button type="button"> Create </button> <br> <br> <br> <br>
     
