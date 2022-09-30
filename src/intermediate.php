@@ -11,10 +11,10 @@ display_small_page_heading("Intermediate","");
         <input style="width:150px; border-width:3px border-style:solid; border-color:black;" type="text" id="Intstock" name="Intstock"> 
         <label for="time-frame">Choose a time frame:</label>
         <select name="time-frame" id="time-frame">
-        <option value="1 Day">day</option>
-        <option value="1 Week">week</option>
-        <option value="1 Month">month</option>
-        <option value="1 Year">year</option>
+        <option value="Day">1 Day</option>
+        <option value="Week">1 Week</option>
+        <option value="Month">1 Month</option>
+        <option value="Year">1 Year</option>
         </select>
     </form>
 </html>
