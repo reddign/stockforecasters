@@ -29,7 +29,7 @@ display_small_page_heading("EC Stock Forecasters");
         dt=dt.length==1 ? 0+dt : dt;
 
         var x1=month + "/" + dt + "/" + x.getFullYear(); 
-        x1 = x1 + " - " +  hours + ":" +  minutes + ":" +  seconds + " " + ampm;
+        x1 = x1 + " " +  hours + ":" +  minutes + ":" +  seconds + " " + ampm;
         document.getElementById('ct7').innerHTML = x1;
         display_c7();
         }
