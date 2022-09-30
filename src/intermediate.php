@@ -16,15 +16,20 @@ display_small_page_heading("Intermediate","");
         <option value="Month">1 Month</option>
         <option value="Year">1 Year</option>
         </select>
-        <button onclick="button"> Search </button>
+        <button onclick="search()"> Search </button>
     </form>
+    <script>   
+        function search() {   
+            window.open("https://query1.finance.yahoo.com/v8/finance/chart/{Intstock}?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range={time-frame}");  
+        }   
+</script>
 </html>
-<?PHP
-
-$url = "https://query1.finance.yahoo.com/v8/finance/chart/{Intstock}?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range={time-frame}";
 
 
-?>
+
+
+
+
 
 <?PHP
 require("includes/footer.php");
