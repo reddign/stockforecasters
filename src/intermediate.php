@@ -20,7 +20,7 @@ display_small_page_heading("Intermediate","");
     </form>
     <script>   
         function search() {   
-            window.open("https://query1.finance.yahoo.com/v8/finance/chart/{Intstock}?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range={time-frame}");  
+            window.open("https://query1.finance.yahoo.com/v8/finance/chart/nvda?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=1d");  
         }   
 </script>
 </html>
