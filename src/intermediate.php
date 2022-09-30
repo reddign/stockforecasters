@@ -16,6 +16,7 @@ display_small_page_heading("Intermediate","");
         <option value="Month">1 Month</option>
         <option value="Year">1 Year</option>
         </select>
+        <button type="button"> Search </button>
     </form>
 </html>
 <?PHP
