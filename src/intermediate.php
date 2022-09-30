@@ -21,9 +21,7 @@ display_small_page_heading("Intermediate","");
 <?PHP
 
 $url = "https://query1.finance.yahoo.com/v8/finance/chart/{Intstock}?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range={time-frame}";
-$stock_data = json_decode(file_get_contents($url), true);
-$stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
-echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
+
 
 ?>
 
