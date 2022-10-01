@@ -9,15 +9,15 @@ display_small_page_heading("Advanced","");
     <body>
     <form>
     <label for="Intstock">Enter Stock Symbol: </label>
-        <input style="width:150px; border-width:3px border-style:solid; border-color:black;" type="text" id="Intstock" name="Intstock"> <br>
+        <input style="width:150px; border-width:3px border-style:solid; border-color:black;" type="text" id="Intstock" name="Intstock"> <br><br>
         <label for="time-frame">Choose a time frame:</label>
         <select name="time-frame" id="time-frame">
         <option value="Day">1 Day</option>
         <option value="Week">1 Week</option>
         <option value="Month">1 Month</option>
         <option value="Year">1 Year</option>
-        </select> <br>
-        <button onclick="search()"> Search </button> <br>
+        </select> <br><br>
+        <button onclick="search()"> Search </button> <br><br>
     </form>
     <script>   
         function search() {   
