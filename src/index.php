@@ -44,6 +44,7 @@ display_small_page_heading("EC Stock Forecasters");
       </b>
       <br><br> Welcome to the main page of the EC Stock Forecasters <br> <br>
     </h4>
+    
     <marquee style="font-size:35pt;" behavior="scroll" direction="left" scrollamount="7">Dow <img width="20px" src="<?php echo $path; ?>images/redArrow.png">  Nasdaq <img width="20px" src="<?php echo $path; ?>images/greenArrow.png">   S&P500   Russell 2000   </marquee>
 
     <h2> News </h2>
