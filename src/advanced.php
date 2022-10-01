@@ -6,7 +6,7 @@ display_small_page_heading("Advanced","");
 ?>
 
 <html>
-    <p>
+    <body>
     <form>
     <label for="Intstock">Enter Stock Symbol: </label>
         <input style="width:150px; border-width:3px border-style:solid; border-color:black;" type="text" id="Intstock" name="Intstock"> 
@@ -24,7 +24,7 @@ display_small_page_heading("Advanced","");
             window.open("https://query1.finance.yahoo.com/v8/finance/chart/nvda?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=1d");  
         }   
     </script>
-    </p>
+    </body>
 </html>
 
 
