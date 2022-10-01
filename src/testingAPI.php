@@ -4,6 +4,8 @@
 $url = "https://query1.finance.yahoo.com/v8/finance/chart/AAPL?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=1d";
 $stock_data = json_decode(file_get_contents($url), true);
 
+//the below paths allow access to data from api
+//this api is free to use with no request limits
 echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
 echo "<br>";
 echo $stock_data['chart']['result'][0]['timestamp'][0];
