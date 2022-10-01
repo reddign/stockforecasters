@@ -13,9 +13,16 @@ display_small_page_heading("Advanced","");
         <label for="time-frame">Choose a time frame:</label>
         <select name="time-frame" id="time-frame">
         <option value="Day">1 Day</option>
-        <option value="Week">1 Week</option>
+        <option value="Week">5 Days</option>
         <option value="Month">1 Month</option>
+        <option value="Month">3 Months</option>
+        <option value="Month">6 Months</option>
         <option value="Year">1 Year</option>
+        <option value="Year">2 Years</option>
+        <option value="Year">5 Years</option>
+        <option value="Year">10 Years</option>
+        <option value="Year">Year to Date</option>
+        <option value="Year">Max</option>
         </select> <br><br>
         <button onclick="search()"> Search </button> <br><br>
     </form>
@@ -26,8 +33,6 @@ display_small_page_heading("Advanced","");
     </script>
     </body>
 </html>
-
-
 
 <?PHP
 require("includes/footer.php");
