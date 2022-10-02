@@ -25,7 +25,7 @@ display_small_page_heading("Advanced","");
             <option value="max">Max</option>
         </select> <br><br>
             <input type ="submit" name="Search" id ="Search" value="Search"/> <br><br>
-        </form>
+    </form>
     <!-- <script>         
         function search() {   
             window.open('https://query1.finance.yahoo.com/v8/finance/chart/' + document.getElementById("Intstock").value + '?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=' + document.getElementById("timeframe").value);  
