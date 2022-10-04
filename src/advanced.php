@@ -7,7 +7,7 @@ display_small_page_heading("Advanced","");
 
 <html>
     <body>
-    <form>
+    <form method = "get">
     <label for="Intstock">Stock Symbol: </label>
         <input style="width:150px; border-width:3px border-style:solid; border-color:black;" type="text" id="Intstock" name="Intstock"> <br><br>
         <label for="timeframe">Time frame:</label>
@@ -26,41 +26,21 @@ display_small_page_heading("Advanced","");
         </select> <br><br>
             <input type ="submit" name="Search" id ="Search" value="Search"/> <br><br>
     </form>
-    <!-- <script>         
-        function search() {   
-            window.open('https://query1.finance.yahoo.com/v8/finance/chart/' + document.getElementById("Intstock").value + '?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=' + document.getElementById("timeframe").value);  
-        }   
-    </script> -->
     </body>
 </html>
 
 <?PHP
-    
-    // if(array_key_exists('Search', $_POST)) {
 
-    //     echo "hello";
-    // }
-
-    // if (isset($_POST['timeframe'])) {
-    //     switch ($_POST['timeframe']) {
-    //         case '1d':
-    //             insert();
-    //             break;
-    //         case '5d':
-    //             select();
-    //             break;
-    //     }
-    // }
-
-// $url = "https://query1.finance.yahoo.com/v8/finance/chart/AAPL?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=1d";
-// $stock_data = json_decode(file_get_contents($url), true);
-// echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
-// echo "<br>";
-// echo $stock_data['chart']['result'][0]['timestamp'][0];
-// echo "<br>";
-// echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][7];
-
-
+    if(isset($_GET['Search'])) {
+        
+        $url = 'https://query1.finance.yahoo.com/v8/finance/chart/'.$_GET['Intstock'].'?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range='.$_GET['timeframe'];
+        $stock_data = json_decode(file_get_contents($url), true);
+        echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
+        echo "<br>";
+        echo $stock_data['chart']['result'][0]['timestamp'][0];
+        echo "<br>";
+        echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][1]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
+    }
 
 require("includes/footer.php");
 ?>
