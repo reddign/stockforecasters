@@ -37,9 +37,9 @@ display_small_page_heading("Advanced","");
         $stock_data = json_decode(file_get_contents($url), true);
         echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
         echo "<br>";
-        echo $stock_data['chart']['result'][0]['timestamp'][0];
+        echo $stock_data['chart']['result'][0]['timestamp'][0]; #need to convert this unix time to normal time formayy HH:MM:SS M/D/Y
         echo "<br>";
-        echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][1]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
+        echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][0]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330
     }
 
 require("includes/footer.php");
