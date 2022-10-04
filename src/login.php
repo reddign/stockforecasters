@@ -9,13 +9,8 @@ display_small_page_heading("Login","");
     <form> 
         <label for="username">Username: </label>
         <input style="width:250px; border-width:3px border-style:solid; border-color:black;" type="text" id="username" name="username"> <br> <br>
-<<<<<<< HEAD
-        <label for="lname">Password:</label>
-        <input style="width: 250px; margin: 5px; border-width:3px border-style:solid; border-color:black;"  type="password" id="password" name="password"> <br> <br>
-=======
         <label for="lname">Password:&nbsp  </label>
         <input style="width:250px; border-width:3px border-style:solid; border-color:black;"  type="password" id="password" name="password"> <br> <br>
->>>>>>> a43564b6878e7d2f74775bdb9c26531104d2ec3a
     </form>
     <button type="button"> Login </button> <br> <br>
 
