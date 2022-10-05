@@ -1,16 +1,16 @@
 <?PHP
 require("functions/basic_html_functions.php");
 require("includes/header.php");
-display_small_page_heading("Create Account","");
+display_small_page_heading("Create Account", "");
 ?>
 
 <html>
-    <h4> Crete an account to save stocks to a watchlist! <br> <br>
-    <form> 
+<h4> Crete an account to save stocks to a watchlist! <br> <br>
+    <form>
         <label for="username">Username: </label>
-        <input style="width:250px; border-width:3px border-style:solid; border-color:black;" type="text" id="username" name="username"> <br> <br>
+        <input style="width:250px; border-width:3px border-style=solid; border-color:black;" type="text" id="username" name="username"> <br> <br>
         <label for="lname">Password: </label>
-        <input style="width:250px; border-width:3px border-style:solid; border-color:black;" type="password" id="password" name="password"> <br> <br>
+        <input style="width:250px; border-width:3px border-style=solid; border-color:black;" type="password" id="password" name="password"> <br> <br>
     </form>
 
     <label for="level">Investor Level: </label>
@@ -21,11 +21,11 @@ display_small_page_heading("Create Account","");
     </select> <br> <br>
 
     <button type="button"> Create </button> <br> <br> <br> <br>
-    
-    </h4>
+
+</h4>
 
 </html>
- 
+
 <?PHP
 require("includes/footer.php");
 ?>
