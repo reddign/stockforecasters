@@ -88,7 +88,11 @@ if($NASDAQ_diff > 0) {
 
       
  
-    <marquee style="font-size:35pt;" behavior="scroll" direction="left" scrollamount="7"> Dow <?php echo $DJI_current."<span style='color:green;'> +$DJI_diff ($DJI_diffPercent%)</span>"; ?> Nasdaq <?php echo $NASDAQ_output;?> S&P500 Russell 2000 </marquee>
+    <marquee style="font-size:35pt;" behavior="scroll" direction="left" scrollamount="7"> 
+    Dow <?php echo $DJI_current."<span style='color:green;'> +$DJI_diff ($DJI_diffPercent%)</span>";?> 
+    Nasdaq <?php echo $NASDAQ_current."<span style='color:green;'> +$NASDAQ_diff ($NASDAQ_diffPercent%)</span>";?>
+    S&P500 
+    Russell 2000 </marquee>
 
     <h2> News </h2>
 
