@@ -32,6 +32,37 @@ if ($NASDAQ_diff > 0) {
 } else {
   $NASDAQ_color = 2;
 }
+
+#color code green=0 red=1 black=2
+$SP_url = 'https://query1.finance.yahoo.com/v8/finance/chart/^GSPC?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=1d';
+$SP_stock_data = json_decode(file_get_contents($SP_url), true);
+$SP_current = $SP_stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
+$SP_prevClose = $SP_stock_data['chart']['result'][0]['meta']['previousClose'];
+$SP_diff = number_format($SP_current - $SP_prevClose, 2);
+$SP_diffPercent = number_format((($SP_current - $SP_prevClose) / $SP_prevClose) * 100, 2);
+if ($SP_diff > 0) {
+  $SP_color = 0;
+} else if ($SP_diff < 0) {
+  $SP_color = 1;
+} else {
+  $SP_color = 2;
+}
+
+#color code green=0 red=1 black=2
+$R_url = 'https://query1.finance.yahoo.com/v8/finance/chart/^RUT?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=1d';
+$R_stock_data = json_decode(file_get_contents($R_url), true);
+$R_current = $R_stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
+$R_prevClose = $R_stock_data['chart']['result'][0]['meta']['previousClose'];
+$R_diff = number_format($R_current - $R_prevClose, 2);
+$R_diffPercent = number_format((($R_current - $R_prevClose) / $R_prevClose) * 100, 2);
+if ($R_diff > 0) {
+  $R_color = 0;
+} else if ($R_diff < 0) {
+  $R_color = 1;
+} else {
+  $R_color = 2;
+}
+
 ?>
 
 <html>
@@ -75,8 +106,7 @@ if ($NASDAQ_diff > 0) {
   <br><br> Welcome to the main page of the EC Stock Forecasters <br> <br>
 </h4>
 
-<marquee style="font-size:35pt;" behavior="scroll" direction="left" scrollamount="7">
-
+<div id="scroll-text">
   <?php if ($DJI_color == 0) : ?>
     Dow <?php echo $DJI_current . "<span style='color:green;'> +$DJI_diff (+$DJI_diffPercent%)</span>"; ?>
   <?php elseif ($DJI_color == 1) : ?>
@@ -93,19 +123,70 @@ if ($NASDAQ_diff > 0) {
     Nasdaq <?php echo $NASDAQ_current . "<span style='color:black;'> $NASDAQ_diff ($NASDAQ_diffPercent%)</span>"; ?>
   <?php endif; ?>
 
+  <?php if ($SP_color == 0) : ?>
+    S&P 500 <?php echo $SP_current . "<span style='color:green;'> +$SP_diff (+$SP_diffPercent%)</span>"; ?>
+  <?php elseif ($SP_color == 1) : ?>
+    S&P 500 <?php echo $SP_current . "<span style='color:red;'> $SP_diff ($SP_diffPercent%)</span>"; ?>
+  <?php elseif ($SP_color == 2) : ?>
+    S&P 500 <?php echo $SP_current . "<span style='color:black;'> $SP_diff ($SP_diffPercent%)</span>"; ?>
+  <?php endif; ?>
 
-
-
-
-
-</marquee>
+  <?php if ($R_color == 0) : ?>
+    Russell 2000 <?php echo $R_current . "<span style='color:green;'> +$R_diff (+$R_diffPercent%)</span>"; ?>
+  <?php elseif ($R_color == 1) : ?>
+    Russell 2000 <?php echo $R_current . "<span style='color:red;'> $R_diff ($R_diffPercent%)</span>"; ?>
+  <?php elseif ($R_color == 2) : ?>
+    Russell 2000 <?php echo $R_current . "<span style='color:black;'> $R_diff ($R_diffPercent%)</span>"; ?>
+  <?php endif; ?>
+</div>
 
 <h2> News </h2>
 
-</html>
 
+<style>
+#scroll-text {
+  /* animation properties */
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  
+  -moz-animation: my-animation 20s linear infinite;
+  -webkit-animation: my-animation 20s linear infinite;
+  animation: my-animation 20s linear infinite;
+}
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+  from { -moz-transform: translateX(100%); }
+  to { -moz-transform: translateX(-100%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+  from { -webkit-transform: translateX(100%); }
+  to { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes my-animation {
+  from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+</style>
+
+</html>
 
 <?PHP
 require("includes/footer.php");
-
 ?>
+
+
+
