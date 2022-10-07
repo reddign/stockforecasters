@@ -19,9 +19,8 @@ $stock_data = json_decode(file_get_contents($url), true);
             Max use 1 month
             */
 
-echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
-echo "<br>";
-echo $stock_data['chart']['result'][0]['timestamp'][0];
-echo "<br>";
-echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][7];
-?>
+// echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
+// echo "<br>";
+// echo $stock_data['chart']['result'][0]['timestamp'][0];
+// echo "<br>";
+// echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][7];

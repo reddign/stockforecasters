@@ -27,6 +27,7 @@ date_default_timezone_set('America/New_York');
             <input type ="submit" name="Search" id ="Search" value="Search"/> <br><br>
     </form>
     </body>
+    
 </html>
 
 <?PHP

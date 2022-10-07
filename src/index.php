@@ -106,29 +106,31 @@ if ($R_diff > 0) {
   <br><br> Welcome to the main page of the EC Stock Forecasters <br> <br>
 </h4>
 
-<div id="scroll-text">
+<h3 style="text-align:center";>
   <?php if ($DJI_color == 0) : ?>
-    Dow <?php echo $DJI_current . "<span style='color:green;'> +$DJI_diff (+$DJI_diffPercent%)</span>"; ?>
+    Dow <?php echo $DJI_current . "<span style='color:green;'> +$DJI_diff (+$DJI_diffPercent%);</span>"; echo str_repeat('&nbsp;', 7);?>
   <?php elseif ($DJI_color == 1) : ?>
-    Dow <?php echo $DJI_current . "<span style='color:red;'> $DJI_diff ($DJI_diffPercent%)</span>"; ?>
+    Dow <?php echo $DJI_current . "<span style='color:red;'> $DJI_diff ($DJI_diffPercent%)</span>"; echo str_repeat('&nbsp;', 7);?>
   <?php elseif ($DJI_color == 2) : ?>
-    Dow <?php echo $DJI_current . "<span style='color:black;'> $DJI_diff ($DJI_diffPercent%)</span>"; ?>
+    Dow <?php echo $DJI_current . "<span style='color:black;'> $DJI_diff ($DJI_diffPercent%)</span>"; echo str_repeat('&nbsp;', 7);?>
   <?php endif; ?>
 
+  
+
   <?php if ($NASDAQ_color == 0) : ?>
-    Nasdaq <?php echo $NASDAQ_current . "<span style='color:green;'> +$NASDAQ_diff (+$NASDAQ_diffPercent%)</span>"; ?>
+    Nasdaq <?php echo $NASDAQ_current . "<span style='color:green;'> +$NASDAQ_diff (+$NASDAQ_diffPercent%)</span><br><br>"; ?>
   <?php elseif ($NASDAQ_color == 1) : ?>
-    Nasdaq <?php echo $NASDAQ_current . "<span style='color:red;'> $NASDAQ_diff ($NASDAQ_diffPercent%)</span>"; ?>
+    Nasdaq <?php echo $NASDAQ_current . "<span style='color:red;'> $NASDAQ_diff ($NASDAQ_diffPercent%)</span><br><br>"; ?>
   <?php elseif ($NASDAQ_color == 2) : ?>
-    Nasdaq <?php echo $NASDAQ_current . "<span style='color:black;'> $NASDAQ_diff ($NASDAQ_diffPercent%)</span>"; ?>
+    Nasdaq <?php echo $NASDAQ_current . "<span style='color:black;'> $NASDAQ_diff ($NASDAQ_diffPercent%)</span><br><br>"; ?>
   <?php endif; ?>
 
   <?php if ($SP_color == 0) : ?>
-    S&P 500 <?php echo $SP_current . "<span style='color:green;'> +$SP_diff (+$SP_diffPercent%)</span>"; ?>
+    S&P 500 <?php echo $SP_current . "<span style='color:green;'> +$SP_diff (+$SP_diffPercent%)</span>"; echo str_repeat('&nbsp;', 7);?>
   <?php elseif ($SP_color == 1) : ?>
-    S&P 500 <?php echo $SP_current . "<span style='color:red;'> $SP_diff ($SP_diffPercent%)</span>"; ?>
+    S&P 500 <?php echo $SP_current . "<span style='color:red;'> $SP_diff ($SP_diffPercent%)</span>"; echo str_repeat('&nbsp;', 7);?>
   <?php elseif ($SP_color == 2) : ?>
-    S&P 500 <?php echo $SP_current . "<span style='color:black;'> $SP_diff ($SP_diffPercent%)</span>"; ?>
+    S&P 500 <?php echo $SP_current . "<span style='color:black;'> $SP_diff ($SP_diffPercent%)</span>"; echo str_repeat('&nbsp;', 7);?>
   <?php endif; ?>
 
   <?php if ($R_color == 0) : ?>
@@ -138,23 +140,29 @@ if ($R_diff > 0) {
   <?php elseif ($R_color == 2) : ?>
     Russell 2000 <?php echo $R_current . "<span style='color:black;'> $R_diff ($R_diffPercent%)</span>"; ?>
   <?php endif; ?>
-</div>
+  </h3>
 
 <h2> News </h2>
 
 
 <style>
 #scroll-text {
-  font-size: 45px;
+  font-size: 25px;
+  overflow: visible;
+  width: auto;
+  word-wrap: break-word;
+
+
+  
 
   /* animation properties */
   -moz-transform: translateX(100%);
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
   
-  -moz-animation: my-animation 5s linear infinite;
-  -webkit-animation: my-animation 5s linear infinite;
-  animation: my-animation 5s linear infinite;
+  -moz-animation: my-animation 15s linear infinite;
+  -webkit-animation: my-animation 15s linear infinite;
+  animation: my-animation 15s linear infinite;
 }
 
 /* for Firefox */
