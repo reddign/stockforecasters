@@ -1,6 +1,7 @@
 <?PHP
 require("functions/basic_html_functions.php");
 require("includes/header.php");
+require("functions/graphingFunctions.php");
 display_small_page_heading("Advanced", "");
 date_default_timezone_set('America/New_York');
 ?>
@@ -35,8 +36,8 @@ date_default_timezone_set('America/New_York');
 
 if (isset($_GET['Search'])) {
     $stockName = strtoupper($_GET['Intstock']);
-    echo $stockName;
-    echo "<br>";
+    // echo $stockName;
+    // echo "<br>";
     $url = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $_GET['Intstock'] . '?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=' . $_GET['timeframe'];
     $stock_data = json_decode(file_get_contents($url), true);
     // echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
@@ -67,7 +68,6 @@ if (isset($_GET['Search'])) {
 
 <?PHP
 }
-
 
 require("includes/footer.php");
 ?>

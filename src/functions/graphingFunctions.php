@@ -1,10 +1,9 @@
 <?PHP
 
-function displayGraph($stockName, $dates, $prices)
+function displayGraph($stockName="", $dates, $prices)
 {
 
 ?>
-
     <html>
 
     <div>
