@@ -34,7 +34,8 @@ date_default_timezone_set('America/New_York');
 <?PHP
 
 if (isset($_GET['Search'])) {
-    echo strtoupper($_GET['Intstock']);
+    $stockName = strtoupper($_GET['Intstock']);
+    echo $stockName;
     echo "<br>";
     $url = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $_GET['Intstock'] . '?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=' . $_GET['timeframe'];
     $stock_data = json_decode(file_get_contents($url), true);
@@ -52,31 +53,31 @@ if (isset($_GET['Search'])) {
     $dates = array();
     $prices = array();
 
-    for ($i = 0; $i < (7 * $days) + 1; $i++) {
-        $dates[$i] = date("F d, Y h:i:sA", $stock_data['chart']['result'][0]['timestamp'][$i]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
-        echo date("F d, Y h:i:sA", $stock_data['chart']['result'][0]['timestamp'][$i]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
-        echo " $";
+    for ($i = 0; $i < 8; $i++) {
+        $dates[$i] = date("h:iA", $stock_data['chart']['result'][0]['timestamp'][$i]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
+        //echo date("F d, Y h:i:sA", $stock_data['chart']['result'][0]['timestamp'][$i]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
+        //echo " $";
         $prices[$i] =  $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][$i]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
-        echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][$i]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
-        echo "<br>";
+        //echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][$i]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
+        //echo "<br>";
     }
 ?>
 
     <html>
 
     <div>
-        <canvas id="stockChart"></canvas>
+        <canvas id="stockChart" height="100px"></canvas>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        const labels = [1,2,3,4,5,6,7];
+        const labels = <?php echo json_encode($dates);?>;
 
         const data = {
             labels: labels,
             datasets: [{
-                label: 'My First dataset',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
+                label: "<?php echo $stockName;?>",
+                backgroundColor: 'rgb(0, 188, 212)',
+                borderColor: 'rgb(0, 188, 212)',
                 data: <?php echo json_encode($prices);?>,
             }]
         };
@@ -84,16 +85,30 @@ if (isset($_GET['Search'])) {
         const config = {
             type: 'line',
             data: data,
-            options: {}
-        };
-    </script>
+            options: {
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                }, elements: {
+                    point: {
+                        radius: 0
+                    }
+                },
 
-    <script>
+                hover: {
+                    mode: 'index',
+                    intersect: false
+                }
+
+            }
+        };
         const myChart = new Chart(
             document.getElementById('stockChart'),
             config
         );
     </script>
+
 
 
     </html>
