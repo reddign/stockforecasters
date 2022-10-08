@@ -59,3 +59,14 @@ date_default_timezone_set('America/New_York');
 
 require("includes/footer.php");
 ?>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<html>
+    <canvas id="stockgraph" width="250" height="200">
+
+
+    </canvas>
+    <script src=scripts.js></script>
+
+</html>
