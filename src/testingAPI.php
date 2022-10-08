@@ -6,12 +6,12 @@
 //6.5 hr trading day
 /*Graph:    1 day use 5m   79
             5 days use 30 min   66
-            1 month use 1 day     31
-            3 months use 1 day     91
-            6 months use 1 day   181
-            1 year use 1 day   366
-            2 years use 1 day
-            5 years use 1 week
+            1 month use 1 day     21
+            3 months use 1 day     61
+            6 months use 1 day   121
+            1 year use 1 day   241
+            2 years use 1 day  481
+            5 years use 1 week  
             10 years use 1 week
             YTD use 1 day
             Max use 1 month
