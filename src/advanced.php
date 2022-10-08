@@ -1,14 +1,15 @@
 <?PHP
 require("functions/basic_html_functions.php");
 require("includes/header.php");
-display_small_page_heading("Advanced","");
+display_small_page_heading("Advanced", "");
 date_default_timezone_set('America/New_York');
 ?>
 
 <html>
-    <body>
-    <form method = "get">
-    <label for="Intstock">Stock Symbol: </label>
+
+<body>
+    <form method="get">
+        <label for="Intstock">Stock Symbol: </label>
         <input style="width:150px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock" name="Intstock"> <br><br>
         <label for="timeframe">Time frame:</label>
         <select name="timeframe" id="timeframe">
@@ -24,49 +25,82 @@ date_default_timezone_set('America/New_York');
             <option value="ytd">Year to Date</option>
             <option value="max">Max</option>
         </select> <br><br>
-            <input type ="submit" name="Search" id ="Search" value="Search"/> <br><br>
+        <input type="submit" name="Search" id="Search" value="Search" /> <br><br>
     </form>
-    </body>
-    
-</html>
+</body>
+
+
 
 <?PHP
-    
-    if(isset($_GET['Search'])) {
-        echo strtoupper($_GET['Intstock']);
+
+if (isset($_GET['Search'])) {
+    echo strtoupper($_GET['Intstock']);
+    echo "<br>";
+    $url = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $_GET['Intstock'] . '?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=' . $_GET['timeframe'];
+    $stock_data = json_decode(file_get_contents($url), true);
+    // echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
+    // echo "<br>";
+    // echo $stock_data['chart']['result'][0]['timestamp'][7]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 UNIX TIME FORMAT
+    // echo "<br>";
+    // echo date("m-d-y h:i:sA", $stock_data['chart']['result'][0]['timestamp'][7]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
+    // echo "<br>";
+    // echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][0]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
+
+    $i = 0;
+    $days = 1;
+
+    $dates = array();
+    $prices = array();
+
+    for ($i = 0; $i < (7 * $days) + 1; $i++) {
+        $dates[$i] = date("F d, Y h:i:sA", $stock_data['chart']['result'][0]['timestamp'][$i]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
+        echo date("F d, Y h:i:sA", $stock_data['chart']['result'][0]['timestamp'][$i]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
+        echo " $";
+        $prices[$i] =  $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][$i]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
+        echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][$i]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
         echo "<br>";
-        $url = 'https://query1.finance.yahoo.com/v8/finance/chart/'.$_GET['Intstock'].'?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range='.$_GET['timeframe'];
-        $stock_data = json_decode(file_get_contents($url), true);
-        // echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
-        // echo "<br>";
-        // echo $stock_data['chart']['result'][0]['timestamp'][7]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 UNIX TIME FORMAT
-        // echo "<br>";
-        // echo date("m-d-y h:i:sA", $stock_data['chart']['result'][0]['timestamp'][7]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
-        // echo "<br>";
-        // echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][0]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
-
-
-
-        $i=0;
-        $days=1;
-        for($i=0;$i<(7*$days)+1;$i++) {
-            echo date("F d, Y h:i:sA", $stock_data['chart']['result'][0]['timestamp'][$i]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
-            echo " $";
-            echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][$i]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
-            echo "<br>";
-        }
     }
+?>
+
+    <html>
+
+    <div>
+        <canvas id="stockChart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const labels = [1,2,3,4,5,6,7];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: <?php echo json_encode($prices);?>,
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {}
+        };
+    </script>
+
+    <script>
+        const myChart = new Chart(
+            document.getElementById('stockChart'),
+            config
+        );
+    </script>
+
+
+    </html>
+
+<?PHP
+}
+
 
 require("includes/footer.php");
 ?>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-
-<html>
-    <canvas id="stockgraph" width="250" height="200">
-
-
-    </canvas>
-    <script src=scripts.js></script>
-
-</html>
