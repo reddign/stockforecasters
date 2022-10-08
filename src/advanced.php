@@ -37,8 +37,6 @@ if (isset($_GET['Search'])) {
     $url = timeInterval($_GET['Intstock'], $_GET['timeframe']);
     $stock_data = json_decode(file_get_contents($url[0]), true);
 
-
-
     $dates = array();
     $prices = array();
 
