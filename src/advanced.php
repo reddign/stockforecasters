@@ -61,9 +61,11 @@ if (isset($_GET['Search'])) {
         //echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][$i]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
         //echo "<br>";
     }
+
+    displayGraph($stockName, $dates, $prices);
 ?>
 
-    <html>
+    <!-- <html>
 
     <div>
         <canvas id="stockChart" height="100px"></canvas>
@@ -111,7 +113,7 @@ if (isset($_GET['Search'])) {
 
 
 
-    </html>
+    </html> -->
 
 <?PHP
 }
