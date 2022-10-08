@@ -14,6 +14,7 @@ date_default_timezone_set('America/New_York');
         <input style="width:150px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock" name="Intstock"> <br><br>
         <label for="timeframe">Time frame:</label>
         <select name="timeframe" id="timeframe">
+            <option value="none" selected disabled hidden>n/a</option>
             <option value="1d">1 Day</option>
             <option value="5d">5 Days</option>
             <option value="1mo">1 Month</option>
@@ -35,14 +36,14 @@ date_default_timezone_set('America/New_York');
 if (isset($_GET['Search'])) {
     $stockName = strtoupper($_GET['Intstock']);
     $url = timeInterval($_GET['Intstock'], $_GET['timeframe']);
-    $stock_data = json_decode(file_get_contents($url[0]), true);
+    $url[3] = json_decode(file_get_contents($url[0]), true);
 
     $dates = array();
     $prices = array();
 
     for ($i = 0; $i < $url[1]; $i++) {
-        $dates[$i] = date("h:iA", $stock_data['chart']['result'][0]['timestamp'][$i]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
-        $prices[$i] =  $stock_data['chart']['result'][0]['indicators']['quote'][0]['close'][$i]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
+        $dates[$i] = date($url[2], $url[3]['chart']['result'][0]['timestamp'][$i]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
+        $prices[$i] =  $url[3]['chart']['result'][0]['indicators']['quote'][0]['close'][$i]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
     }
 
     displayGraph($stockName, $dates, $prices);

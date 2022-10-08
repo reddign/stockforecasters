@@ -41,6 +41,16 @@ function displayGraph($stockName = "", $dates, $prices)
                 hover: {
                     mode: 'index',
                     intersect: false
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            display: false
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
                 }
 
             }
@@ -64,57 +74,79 @@ function timeInterval($stockName, $time)
     switch ($time) {
         case "1d": {
                 $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $stockName . '?region=US&lang=en-US&includePrePost=false&interval=5m&useYfid=true&range=' . $time;
-                $url[1] = 79;
+                $url[3] = json_decode(file_get_contents($url[0]), true);
+                $url[1] = count($url[3]['chart']['result'][0]['indicators']['quote'][0]['close']);   
+                $url[2] = "h:iA";
                 break;
             }
         case "5d": {
                 $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $stockName . '?region=US&lang=en-US&includePrePost=false&interval=30m&useYfid=true&range=' . $time;
-                $url[1] = 66;
+                $url[3] = json_decode(file_get_contents($url[0]), true);
+                $url[1] = count($url[3]['chart']['result'][0]['indicators']['quote'][0]['close']);   
+                $url[2] = "M j h:iA";
                 break;
             }
         case "1mo": {
                 $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $stockName . '?region=US&lang=en-US&includePrePost=false&interval=1d&useYfid=true&range=' . $time;
-                $url[1] = 21;
+                $url[3] = json_decode(file_get_contents($url[0]), true);
+                $url[1] = count($url[3]['chart']['result'][0]['indicators']['quote'][0]['close']);   
+                $url[2] = "M j";
                 break;
             }
         case "3mo": {
                 $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $stockName . '?region=US&lang=en-US&includePrePost=false&interval=1d&useYfid=true&range=' . $time;
-                $url[1] = 61;
+                $url[3] = json_decode(file_get_contents($url[0]), true);
+                $url[1] = count($url[3]['chart']['result'][0]['indicators']['quote'][0]['close']);   
+                $url[2] = "M j";
                 break;
             }
         case "6mo": {
                 $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $stockName . '?region=US&lang=en-US&includePrePost=false&interval=1d&useYfid=true&range=' . $time;
-                $url[1] = 121;
+                $url[3] = json_decode(file_get_contents($url[0]), true);
+                $url[1] = count($url[3]['chart']['result'][0]['indicators']['quote'][0]['close']);   
+                $url[2] = "M j";
                 break;
             }
         case "1y": {
                 $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $stockName . '?region=US&lang=en-US&includePrePost=false&interval=1d&useYfid=true&range=' . $time;
-                $url[1] = 241;
+                $url[3] = json_decode(file_get_contents($url[0]), true);
+                $url[1] = count($url[3]['chart']['result'][0]['indicators']['quote'][0]['close']);   
+                $url[2] = "M j";
                 break;
             }
         case "2y": {
                 $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $stockName . '?region=US&lang=en-US&includePrePost=false&interval=1d&useYfid=true&range=' . $time;
-                $url[1] = 481;
+                $url[3] = json_decode(file_get_contents($url[0]), true);
+                $url[1] = count($url[3]['chart']['result'][0]['indicators']['quote'][0]['close']);   
+                $url[2] = "M j Y";
                 break;
             }
         case "5y": {
                 $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $stockName . '?region=US&lang=en-US&includePrePost=false&interval=1wk&useYfid=true&range=' . $time;
-                $url[1] = 261;
+                $url[3] = json_decode(file_get_contents($url[0]), true);
+                $url[1] = count($url[3]['chart']['result'][0]['indicators']['quote'][0]['close']);   
+                $url[2] = "M j Y";
                 break;
             }
         case "10y": {
                 $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $stockName . '?region=US&lang=en-US&includePrePost=false&interval=1wk&useYfid=true&range=' . $time;
-                $url[1] = 521;
+                $url[3] = json_decode(file_get_contents($url[0]), true);
+                $url[1] = count($url[3]['chart']['result'][0]['indicators']['quote'][0]['close']);   
+                $url[2] = "M j Y";
                 break;
             }
         case "ytd": {
                 $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $stockName . '?region=US&lang=en-US&includePrePost=false&interval=1d&useYfid=true&range=' . $time;
-                $url[1] = 66; //these both depend on the current date
+                $url[3] = json_decode(file_get_contents($url[0]), true);
+                $url[1] = count($url[3]['chart']['result'][0]['indicators']['quote'][0]['close']);   
+                $url[2] = "M j Y";
                 break;
             }
         case "max": {
                 $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $stockName . '?region=US&lang=en-US&includePrePost=false&interval=1mo&useYfid=true&range=' . $time;
-                $url[1] = 66; //these both depend on the current date
+                $url[3] = json_decode(file_get_contents($url[0]), true);
+                $url[1] = count($url[3]['chart']['result'][0]['indicators']['quote'][0]['close']);   
+                $url[2] = "M j Y";
                 break;
             }
     }
