@@ -1,5 +1,6 @@
 <?PHP
 $path = '';
+require("functions/timeFunction.php");
 require("functions/basic_html_functions.php");
 require("includes/header.php");
 display_small_page_heading("EC Stock Forecasters");
@@ -68,54 +69,24 @@ if ($R_diff > 0) {
 <html>
 <h4 style="text-align:center">
   <b>
-
-    <script>
-      function display_ct7() {
-        var x = new Date()
-        var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
-        hours = x.getHours() % 12;
-        hours = hours ? hours : 12;
-        hours = hours.toString().length == 1 ? 0 + hours.toString() : hours;
-
-        var minutes = x.getMinutes().toString()
-        minutes = minutes.length == 1 ? 0 + minutes : minutes;
-
-        var seconds = x.getSeconds().toString()
-        seconds = seconds.length == 1 ? 0 + seconds : seconds;
-
-        var month = (x.getMonth() + 1).toString();
-        month = month.length == 1 ? 0 + month : month;
-
-        var dt = x.getDate().toString();
-        dt = dt.length == 1 ? 0 + dt : dt;
-
-        var x1 = month + "/" + dt + "/" + x.getFullYear();
-        x1 = x1 + " " + hours + ":" + minutes + ":" + seconds + " " + ampm;
-        document.getElementById('ct7').innerHTML = x1;
-        display_c7();
-      }
-      function display_c7() {
-        var refresh = 1000; // Refresh rate in milli seconds
-        mytime = setTimeout('display_ct7()', refresh)
-      }
-      display_c7()
-    </script>
-    <span id='ct7'></span>
-
+    <?PHP displayTime(); ?>
   </b>
   <br><br> Welcome to the main page of the EC Stock Forecasters <br> <br>
 </h4>
 
-<h3 style="text-align:center";>
+<h3 style="text-align:center" ;>
   <?php if ($DJI_color == 0) : ?>
-    Dow <?php echo $DJI_current . "<span style='color:green;'> +$DJI_diff (+$DJI_diffPercent%);</span>"; echo str_repeat('&nbsp;', 7);?>
+    Dow <?php echo $DJI_current . "<span style='color:green;'> +$DJI_diff (+$DJI_diffPercent%);</span>";
+        echo str_repeat('&nbsp;', 7); ?>
   <?php elseif ($DJI_color == 1) : ?>
-    Dow <?php echo $DJI_current . "<span style='color:red;'> $DJI_diff ($DJI_diffPercent%)</span>"; echo str_repeat('&nbsp;', 7);?>
+    Dow <?php echo $DJI_current . "<span style='color:red;'> $DJI_diff ($DJI_diffPercent%)</span>";
+        echo str_repeat('&nbsp;', 7); ?>
   <?php elseif ($DJI_color == 2) : ?>
-    Dow <?php echo $DJI_current . "<span style='color:black;'> $DJI_diff ($DJI_diffPercent%)</span>"; echo str_repeat('&nbsp;', 7);?>
+    Dow <?php echo $DJI_current . "<span style='color:black;'> $DJI_diff ($DJI_diffPercent%)</span>";
+        echo str_repeat('&nbsp;', 7); ?>
   <?php endif; ?>
 
-  
+
 
   <?php if ($NASDAQ_color == 0) : ?>
     Nasdaq <?php echo $NASDAQ_current . "<span style='color:green;'> +$NASDAQ_diff (+$NASDAQ_diffPercent%)</span><br><br>"; ?>
@@ -126,11 +97,14 @@ if ($R_diff > 0) {
   <?php endif; ?>
 
   <?php if ($SP_color == 0) : ?>
-    S&P 500 <?php echo $SP_current . "<span style='color:green;'> +$SP_diff (+$SP_diffPercent%)</span>"; echo str_repeat('&nbsp;', 7);?>
+    S&P 500 <?php echo $SP_current . "<span style='color:green;'> +$SP_diff (+$SP_diffPercent%)</span>";
+            echo str_repeat('&nbsp;', 7); ?>
   <?php elseif ($SP_color == 1) : ?>
-    S&P 500 <?php echo $SP_current . "<span style='color:red;'> $SP_diff ($SP_diffPercent%)</span>"; echo str_repeat('&nbsp;', 7);?>
+    S&P 500 <?php echo $SP_current . "<span style='color:red;'> $SP_diff ($SP_diffPercent%)</span>";
+            echo str_repeat('&nbsp;', 7); ?>
   <?php elseif ($SP_color == 2) : ?>
-    S&P 500 <?php echo $SP_current . "<span style='color:black;'> $SP_diff ($SP_diffPercent%)</span>"; echo str_repeat('&nbsp;', 7);?>
+    S&P 500 <?php echo $SP_current . "<span style='color:black;'> $SP_diff ($SP_diffPercent%)</span>";
+            echo str_repeat('&nbsp;', 7); ?>
   <?php endif; ?>
 
   <?php if ($R_color == 0) : ?>
@@ -140,63 +114,12 @@ if ($R_diff > 0) {
   <?php elseif ($R_color == 2) : ?>
     Russell 2000 <?php echo $R_current . "<span style='color:black;'> $R_diff ($R_diffPercent%)</span>"; ?>
   <?php endif; ?>
-  </h3>
+</h3>
 
 <h2> News </h2>
-
-
-<style>
-#scroll-text {
-  font-size: 25px;
-  overflow: visible;
-  width: auto;
-  word-wrap: break-word;
-
-
-  
-
-  /* animation properties */
-  -moz-transform: translateX(100%);
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
-  
-  -moz-animation: my-animation 15s linear infinite;
-  -webkit-animation: my-animation 15s linear infinite;
-  animation: my-animation 15s linear infinite;
-}
-
-/* for Firefox */
-@-moz-keyframes my-animation {
-  from { -moz-transform: translateX(100%); }
-  to { -moz-transform: translateX(-100%); }
-}
-
-/* for Chrome */
-@-webkit-keyframes my-animation {
-  from { -webkit-transform: translateX(100%); }
-  to { -webkit-transform: translateX(-100%); }
-}
-
-@keyframes my-animation {
-  from {
-    -moz-transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
-  }
-  to {
-    -moz-transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-  }
-}
-
-</style>
 
 </html>
 
 <?PHP
 require("includes/footer.php");
 ?>
-
-
-

@@ -59,4 +59,9 @@ function displayGraph($stockName="", $dates, $prices)
 
 }
 
+function timeInterval($time) {
+
+}
+
+
 ?>

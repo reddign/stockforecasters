@@ -3,12 +3,13 @@
 //this api is free to use with no request limits
 //Valid intervals: 1m, 2m, 5m, 15m, 30m, 60m, 90m, 1h, 1d, 5d, 1wk, 1mo, 3mo
 //Valid ranges: 1 day, 5 days, 1 month, 3 months, 6 months, 1 year, 2 years, 5 years, 10 years, YTD, Max
-/*Graph:    1 day use 5m
-            5 days use 30 min
-            1 month use 1 day
-            3 months use 1 day
-            6 months use 1 day
-            1 year use 1 day
+//6.5 hr trading day
+/*Graph:    1 day use 5m   79
+            5 days use 30 min   66
+            1 month use 1 day     31
+            3 months use 1 day     91
+            6 months use 1 day   181
+            1 year use 1 day   366
             2 years use 1 day
             5 years use 1 week
             10 years use 1 week
