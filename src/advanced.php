@@ -16,9 +16,9 @@ date_default_timezone_set('America/New_York');
         <select name="timeframe" id="timeframe">
             <option value="1d">1 Day</option>
             <option value="5d">5 Days</option>
-            <option value="1m">1 Month</option>
-            <option value="3m">3 Months</option>
-            <option value="6m">6 Months</option>
+            <option value="1mo">1 Month</option>
+            <option value="3mo">3 Months</option>
+            <option value="6mo">6 Months</option>
             <option value="1y">1 Year</option>
             <option value="2y">2 Years</option>
             <option value="5y">5 Years</option>
@@ -30,15 +30,13 @@ date_default_timezone_set('America/New_York');
     </form>
 </body>
 
-
-
 <?PHP
 
 if (isset($_GET['Search'])) {
     $stockName = strtoupper($_GET['Intstock']);
     $url = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $_GET['Intstock'] . '?region=US&lang=en-US&includePrePost=false&interval=5m&useYfid=true&range=' . $_GET['timeframe'];
     $stock_data = json_decode(file_get_contents($url), true);
-
+    echo $_GET['timeframe'];
     timeInterval($_GET['timeframe']);
 
 
