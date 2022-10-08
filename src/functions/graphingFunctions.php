@@ -59,8 +59,68 @@ function displayGraph($stockName="", $dates, $prices)
 
 }
 
-function timeInterval($time) {
+function timeInterval($stockName,$time) {
+    $url = array();
 
+    switch($time) {
+        case "1d": {
+            $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' .$stockName. '?region=US&lang=en-US&includePrePost=false&interval=5m&useYfid=true&range=' .$time;
+            $url[1] = 79;
+            break;
+        }
+        case "5d": {
+            $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' .$stockName. '?region=US&lang=en-US&includePrePost=false&interval=30m&useYfid=true&range=' .$time;
+            $url[1] = 66;
+            break;
+        }
+        case "1mo": {
+            $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' .$stockName. '?region=US&lang=en-US&includePrePost=false&interval=1d&useYfid=true&range=' .$time;
+            $url[1] = 21;
+            break;
+        }
+        case "3mo": {
+            $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' .$stockName. '?region=US&lang=en-US&includePrePost=false&interval=1d&useYfid=true&range=' .$time;
+            $url[1] = 61;
+            break;
+        }
+        case "6mo": {
+            $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' .$stockName. '?region=US&lang=en-US&includePrePost=false&interval=1d&useYfid=true&range=' .$time;
+            $url[1] = 121;
+            break;
+        }
+        case "1y": {
+            $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' .$stockName. '?region=US&lang=en-US&includePrePost=false&interval=1d&useYfid=true&range=' .$time;
+            $url[1] = 241;
+            break;
+        }
+        case "2y": {
+            $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' .$stockName. '?region=US&lang=en-US&includePrePost=false&interval=1d&useYfid=true&range=' .$time;
+            $url[1] = 481;
+            break;
+        }
+        case "5y": {
+            $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' .$stockName. '?region=US&lang=en-US&includePrePost=false&interval=1wk&useYfid=true&range=' .$time;
+            $url[1] = 261;
+            break;
+        }
+        case "10y": {
+            $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' .$stockName. '?region=US&lang=en-US&includePrePost=false&interval=1wk&useYfid=true&range=' .$time;
+            $url[1] = 521;
+            break;
+        }
+        case "ytd": {
+            $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' .$stockName. '?region=US&lang=en-US&includePrePost=false&interval=1d&useYfid=true&range=' .$time;
+            $url[1] = 66; //these both depend on the current date
+            break;
+        }
+        case "max": {
+            $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' .$stockName. '?region=US&lang=en-US&includePrePost=false&interval=1mo&useYfid=true&range=' .$time;
+            $url[1] = 66; //these both depend on the current date
+            break;
+        }
+    }
+
+    return $url;
 }
 
 

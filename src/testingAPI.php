@@ -5,16 +5,16 @@
 //Valid ranges: 1 day, 5 days, 1 month, 3 months, 6 months, 1 year, 2 years, 5 years, 10 years, YTD, Max
 //6.5 hr trading day
 /*Graph:    1 day use 5m   79
-            5 days use 30 min   66
-            1 month use 1 day     21
-            3 months use 1 day     61
-            6 months use 1 day   121
-            1 year use 1 day   241
-            2 years use 1 day  481
-            5 years use 1 week  
-            10 years use 1 week
-            YTD use 1 day
-            Max use 1 month
+            5 days use 30 min   66 
+            1 month use 1 day     21 use close price for prev points
+            3 months use 1 day     61 use close price for prev points
+            6 months use 1 day   121 use close price for prev points
+            1 year use 1 day   241 use close price for prev points
+            2 years use 1 day  481 use close price for prev points
+            5 years use 1 week  use close price for prev points
+            10 years use 1 week use close price for prev points
+            YTD use 1 day use close price for prev points
+            Max use 1 month use close price for prev points
             */
 
 // echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
