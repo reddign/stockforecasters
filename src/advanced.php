@@ -47,6 +47,7 @@ if (isset($_GET['Search'])) {
     }
 
     displayGraph($stockName, $dates, $prices);
+
 ?>
 
 <?PHP

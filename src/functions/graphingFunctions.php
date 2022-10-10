@@ -45,7 +45,7 @@ function displayGraph($stockName = "", $dates, $prices)
                 scales: {
                     x: {
                         ticks: {
-                            display: false
+                            display: false 
                         },
                         grid: {
                             display: false
@@ -73,7 +73,7 @@ function timeInterval($stockName, $time)
 
     switch ($time) {
         case "1d": {
-                $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $stockName . '?region=US&lang=en-US&includePrePost=false&interval=5m&useYfid=true&range=' . $time;
+                $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $stockName . '?region=US&lang=en-US&includePrePost=false&interval=30m&useYfid=true&range=' . $time;
                 $url[3] = json_decode(file_get_contents($url[0]), true);
                 $url[1] = count($url[3]['chart']['result'][0]['indicators']['quote'][0]['close']);   
                 $url[2] = "h:iA";
@@ -82,7 +82,7 @@ function timeInterval($stockName, $time)
         case "5d": {
                 $url[0] = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $stockName . '?region=US&lang=en-US&includePrePost=false&interval=30m&useYfid=true&range=' . $time;
                 $url[3] = json_decode(file_get_contents($url[0]), true);
-                $url[1] = count($url[3]['chart']['result'][0]['indicators']['quote'][0]['close']);   
+                $url[1] = count($url[3]['chart']['result'][0]['indicators']['quote'][0]['close']);  
                 $url[2] = "M j h:iA";
                 break;
             }
