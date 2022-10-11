@@ -30,10 +30,12 @@ date_default_timezone_set('America/New_York');
         <input type="submit" name="Search" id="Search" value="Search" /> <br><br>
     </form>
 </body>
+
 <?PHP
 
 if (isset($_GET['Search'])) {
     $stockName = strtoupper($_GET['Intstock']);
+    //this returns the array "url" which has a bunch of information that is used in later function calls
     $url = timeInterval($_GET['Intstock'], $_GET['timeframe']);
     $url[3] = json_decode(file_get_contents($url[0]), true);
 
@@ -47,14 +49,15 @@ if (isset($_GET['Search'])) {
 
     $prevClose = $url[3]['chart']['result'][0]['meta']['chartPreviousClose'];
 
-    echo $prevClose;
-
-    displayGraph($stockName, $dates, $prices,$prevClose);
+    displayGraph($stockName, $dates, $prices, $prevClose);
 
 ?>
+
 
 <?PHP
 }
 
 require("includes/footer.php");
 ?>
+
+</html>
