@@ -47,7 +47,8 @@ if (isset($_GET['Search'])) {
         $prices[$i] =  $url[3]['chart']['result'][0]['indicators']['quote'][0]['close'][$i]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
     }
 
-    $prevClose = $url[3]['chart']['result'][0]['meta']['chartPreviousClose'];
+    //$prevClose = $url[3]['chart']['result'][0]['meta']['chartPreviousClose'];
+    $prevClose = $url[3]['chart']['result'][0]['indicators']['quote'][0]['close'][0];
 
     displayGraph($stockName, $dates, $prices, $prevClose);
 
