@@ -1,6 +1,7 @@
 <?PHP
 require("functions/basic_html_functions.php");
 require("includes/header.php");
+require("functions/graphingFunctions.php");
 display_small_page_heading("Intermediate", "");
 date_default_timezone_set('America/New_York');
 ?>
