@@ -27,11 +27,6 @@ display_small_page_heading("Beginner","");
 
 </html>
 
-<?PHP
-require("includes/footer.php");
-?>
-?>
-
 <html>
 
 <h2>FAQ</h2>
@@ -76,7 +71,6 @@ require("includes/footer.php");
   <p>Answer</p>
 </details>
   
-
 
 </html>
 
