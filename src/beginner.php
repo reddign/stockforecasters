@@ -27,12 +27,60 @@ display_small_page_heading("Beginner","");
 
 </html>
 
+<?PHP
+require("includes/footer.php");
+?>
+?>
+
+<html>
+
+<h2>FAQ</h2>
+
+<details>
+  <summary>What is a stock?</summary>
+  <p>Answer</p>
+</details>
+
+<details>
+  <summary>What is an ETF?</summary>
+  <p>Answer</p>
+</details>
+
+<details>
+  <summary>What is the Dow Jones?</summary>
+  <p>Answer</p>
+</details>
+
+<details>
+  <summary>How do I buy stocks?</summary>
+  <p>Answer</p>
+</details>
+
+<details>
+  <summary>How do I know what stocks to buy?</summary>
+  <p>Answer</p>
+</details>
+
+<details>
+  <summary>How much money do I need to but stocks?</summary> 
+  <p>Answer</p>
+</details>  
+
+<details>
+  <summary>How long should I own a particular stock for?</summary> 
+  <p>Answer</p>
+</details>
+
+<details>
+  <summary>What is an 401K and IRA?</summary>
+  <p>Answer</p>
+</details>
+  
 
 
-
-
-
+</html>
 
 <?PHP
 require("includes/footer.php");
 ?>
+
