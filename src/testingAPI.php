@@ -35,6 +35,4 @@
     // echo "<br>";
     // echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][0]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
 
-
-
 ?>
