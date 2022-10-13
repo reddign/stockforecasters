@@ -19,3 +19,7 @@ advanced
 other
 - add to about page
 - login stuff using CIA code from stuff
+
+research to do
+- prediction methods
+- API for stock info, news, and stock ticker
