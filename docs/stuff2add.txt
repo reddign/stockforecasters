@@ -1,22 +1,21 @@
 beginner
 - FAQ answers
 - tables with stock codes to look at
-- add graph
+- add graph picture and explain it
+- able to look up company name and returns ticker symbol (example: you type "Apple" and it returns "AAPL")
 
 
 intermediate
-- 
-
-
-
+- trend lines
+- multiple stocks on one graph
 
 
 advanced
-- 
-
-
+- predictions
+- trend lines
+- multiple stocks on one graph
 
 
 other
-- add about
-- login stuff using CIA code
+- add to about page
+- login stuff using CIA code from stuff
