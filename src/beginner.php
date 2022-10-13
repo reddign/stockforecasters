@@ -2,7 +2,6 @@
 require("functions/basic_html_functions.php");
 require("includes/header.php");
 display_small_page_heading("Beginner","");
-<<<<<<< HEAD
 
 ?>
 
@@ -28,16 +27,9 @@ display_small_page_heading("Beginner","");
 
 </html>
 
-
-
-
-
-
-
 <?PHP
 require("includes/footer.php");
 ?>
-=======
 ?>
 
 <html>
@@ -92,4 +84,3 @@ require("includes/footer.php");
 require("includes/footer.php");
 ?>
 
->>>>>>> fcc6295 (beginner + api stuff)
