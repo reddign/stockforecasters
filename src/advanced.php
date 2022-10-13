@@ -46,8 +46,7 @@ if (isset($_GET['Search'])) {
         $dates[$i] = date($url[2], $url[3]['chart']['result'][0]['timestamp'][$i]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
         $prices[$i] =  $url[3]['chart']['result'][0]['indicators']['quote'][0]['close'][$i]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
     }
-    echo $url[1];
-
+    
     if($url[2] == "h:iA"){
         $prevClose = $url[3]['chart']['result'][0]['meta']['chartPreviousClose'];
 
