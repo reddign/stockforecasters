@@ -1,0 +1,22 @@
+beginner
+- FAQ answers
+- tables with stock codes to look at
+- add graph
+
+
+intermediate
+- 
+
+
+
+
+
+advanced
+- 
+
+
+
+
+other
+- add about
+- login stuff using CIA code
