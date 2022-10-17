@@ -1,70 +1,73 @@
-import yfinance as yf
 
+
+
+
+import yfinance as yf
 msft = yf.Ticker("MSFT")
 print(msft.news)
 
-# get stock info
-msft.info
+# # get stock info
+# msft.info
 
-# get historical market data
-hist = msft.history(period="max")
+# # get historical market data
+# hist = msft.history(period="max")
 
-# show actions (dividends, splits)
-msft.actions
+# # show actions (dividends, splits)
+# msft.actions
 
-# show dividends
-msft.dividends
+# # show dividends
+# msft.dividends
 
-# show splits
-msft.splits
+# # show splits
+# msft.splits
 
-# show financials
-msft.financials
-msft.quarterly_financials
+# # show financials
+# msft.financials
+# msft.quarterly_financials
 
-# show major holders
-msft.major_holders
+# # show major holders
+# msft.major_holders
 
-# show institutional holders
-msft.institutional_holders
+# # show institutional holders
+# msft.institutional_holders
 
-# show balance sheet
-msft.balance_sheet
-msft.quarterly_balance_sheet
+# # show balance sheet
+# msft.balance_sheet
+# msft.quarterly_balance_sheet
 
-# show cashflow
-msft.cashflow
-msft.quarterly_cashflow
+# # show cashflow
+# msft.cashflow
+# msft.quarterly_cashflow
 
-# show earnings
-msft.earnings
-msft.quarterly_earnings
+# # show earnings
+# msft.earnings
+# msft.quarterly_earnings
 
-# show sustainability
-msft.sustainability
+# # show sustainability
+# msft.sustainability
 
-# show analysts recommendations
-msft.recommendations
+# # show analysts recommendations
+# msft.recommendations
 
-# show next event (earnings, etc)
-msft.calendar
+# # show next event (earnings, etc)
+# msft.calendar
 
-# show all earnings dates
-msft.earnings_dates
+# # show all earnings dates
+# msft.earnings_dates
 
-# show ISIN code - *experimental*
-# ISIN = International Securities Identification Number
-msft.isin
+# # show ISIN code - *experimental*
+# # ISIN = International Securities Identification Number
+# msft.isin
 
-# show options expirations
-msft.options
+# # show options expirations
+# msft.options
 
-# show news
-msft.news
+# # show news
+# msft.news
 
-# get option chain for specific expiration
-opt = msft.option_chain('YYYY-MM-DD')
-# data available via: opt.calls, opt.puts
+# # get option chain for specific expiration
+# opt = msft.option_chain('YYYY-MM-DD')
+# # data available via: opt.calls, opt.puts
 
 
-#documentation --> https://pypi.org/project/yfinance/
+# #documentation --> https://pypi.org/project/yfinance/
