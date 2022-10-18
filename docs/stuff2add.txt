@@ -7,13 +7,13 @@ beginner
 
 intermediate
 - trend lines
-- multiple stocks on one graph
+- multiple stocks on one graph DONE
 
 
 advanced
 - predictions
 - trend lines
-- multiple stocks on one graph
+- multiple stocks on one graph DONE
 
 
 other
