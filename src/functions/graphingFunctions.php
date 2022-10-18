@@ -180,14 +180,24 @@ function displayName($stockName = "", $dates, $prices, $prevClose)
     $indexInfo[2] = number_format($index_diff, 2);
     $indexInfo[3] = number_format($index_diffPercent, 2);
 
-    if ($indexInfo[0] == 0) {
-        echo $stockName . " " . $indexInfo[1] . "<span style='color:green'> $indexInfo[2] ($indexInfo[3]%)</span>" . " Range: " . $dates[0] . " - " . $dates[count($dates) - 1] . str_repeat('&nbsp', 7);
-    } elseif ($indexInfo[0] == 1) {
-        echo $stockName . " " . $indexInfo[1] . "<span style='color:red'> $indexInfo[2] ($indexInfo[3]%)</span>" . " Range: " . $dates[0] . " - " . $dates[count($dates) - 1] . str_repeat('&nbsp', 7);
-    } elseif ($indexInfo[0] == 2) {
-        echo $stockName . " " . $indexInfo[1] . "<span style='color:black'> $indexInfo[2] ($indexInfo[3]%)</span>" . " Range: " . $dates[0] . " - " . $dates[count($dates) - 1] . str_repeat('&nbsp', 7);
-    }
-    echo "<br>";
+?>
+
+    <html>
+    <p style="text-align:center;">
+
+        <?PHP
+        if ($indexInfo[0] == 0) {
+            echo $stockName . " " . $indexInfo[1] . "<span style='color:green'> +$indexInfo[2] ($indexInfo[3]%)</span>" . " Range: " . $dates[0] . " - " . $dates[count($dates) - 1] . str_repeat('&nbsp', 7);
+        } elseif ($indexInfo[0] == 1) {
+            echo $stockName . " " . $indexInfo[1] . "<span style='color:red'> $indexInfo[2] ($indexInfo[3]%)</span>" . " Range: " . $dates[0] . " - " . $dates[count($dates) - 1] . str_repeat('&nbsp', 7);
+        } elseif ($indexInfo[0] == 2) {
+            echo $stockName . " " . $indexInfo[1] . "<span style='color:black'> $indexInfo[2] ($indexInfo[3]%)</span>" . " Range: " . $dates[0] . " - " . $dates[count($dates) - 1] . str_repeat('&nbsp', 7);
+        }
+        ?>
+    </p>
+
+    </html>
+<?PHP
 }
 
 function displayGraphmultiple($stockName = "", $dates, $prices, $prevClose, $stockName1 = "", $dates1, $prices1, $prevClose1)
@@ -200,11 +210,11 @@ function displayGraphmultiple($stockName = "", $dates, $prices, $prevClose, $sto
 
 
 
-    <div>
-        <canvas id="stockChart" height="50px"></canvas>
+    <div style="height: 45%; width: 45%;display:inline-block;">
+        <canvas id="stockChart"></canvas>
     </div>
-    <div>
-        <canvas id="stockChart1" height="50px"></canvas>
+    <div style="height: 10%; width: 45%;margin-left:5%;display:inline-block;">
+        <canvas id="stockChart1"></canvas>
     </div>
 
 
@@ -216,20 +226,20 @@ function displayGraphmultiple($stockName = "", $dates, $prices, $prevClose, $sto
         const data = {
             labels: labels,
             datasets: [{
-                    label: "<?php echo $stockName; ?>",
-                    backgroundColor: 'rgb(0, 188, 212)',
-                    borderColor: 'rgb(0, 188, 212)',
-                    data: <?php echo json_encode($prices); ?>,
-                }]
+                label: "<?php echo $stockName; ?>",
+                backgroundColor: 'rgb(0, 188, 212)',
+                borderColor: 'rgb(0, 188, 212)',
+                data: <?php echo json_encode($prices); ?>,
+            }]
         };
         const data1 = {
             labels: labels1,
             datasets: [{
-                    label: "<?php echo $stockName1; ?>",
-                    backgroundColor: 'rgb(52, 67, 235)',
-                    borderColor: 'rgb(52, 67, 235)',
-                    data: <?php echo json_encode($prices1); ?>,
-                }]
+                label: "<?php echo $stockName1; ?>",
+                backgroundColor: 'rgb(47, 82, 143)',
+                borderColor: 'rgb(47, 82, 143)',
+                data: <?php echo json_encode($prices1); ?>,
+            }]
         };
 
         const config = {

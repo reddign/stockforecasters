@@ -11,8 +11,8 @@ date_default_timezone_set('America/New_York');
 <body>
     <form method="get">
         <label for="Intstock">Stock Symbol: </label>
-        <input style="width:150px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock" name="Intstock">
-        <input style="width:150px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock1" name="Intstock1">
+        <input style="width:100px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock" name="Intstock">
+        <input style="width:100px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock1" name="Intstock1">
         <label for="timeframe">Time frame:</label>
         <select name="timeframe" id="timeframe">
             <option value="none" selected disabled hidden>n/a</option>
@@ -30,6 +30,12 @@ date_default_timezone_set('America/New_York');
         </select>
         <input type="submit" name="Search" id="Search" value="Search" /> <br><br>
     </form>
+
+    <div style="font-style: italic; font-size: 13px"> 
+        - You can display the graph of up to two stocks. Leave the second text box exmpty if you only want to display one stock <br>
+        - If you want to graph a stock and indicator enter the indicator code in the second text box. <br>
+        - Indicator codes: SMA, (more codes coming soon...)
+    </div>
 </body>
 
 <?PHP
