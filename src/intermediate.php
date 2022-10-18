@@ -2,7 +2,7 @@
 require("functions/basic_html_functions.php");
 require("includes/header.php");
 require("functions/graphingFunctions.php");
-display_small_page_heading("Advanced", "");
+display_small_page_heading("Intermediate", "");
 date_default_timezone_set('America/New_York');
 ?>
 
@@ -11,8 +11,8 @@ date_default_timezone_set('America/New_York');
 <body>
     <form method="get">
         <label for="Intstock">Stock Symbol: </label>
-        <input style="width:100px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock" name="Intstock">
-        <input style="width:100px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock1" name="Intstock1">
+        <input style="width:115px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock" name="Intstock" placeholder="Stock Name">
+        <input style="width:310px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock1" name="Intstock1" placeholder="Optional: Stock Name or Indicator">
         <label for="timeframe">Time frame:</label>
         <select name="timeframe" id="timeframe">
             <option value="none" selected disabled hidden>n/a</option>
@@ -34,7 +34,9 @@ date_default_timezone_set('America/New_York');
     <div style="font-style: italic; font-size: 13px"> 
         - You can display the graph of up to two stocks. Leave the second text box exmpty if you only want to display one stock <br>
         - If you want to graph a stock and indicator enter the indicator code in the second text box. <br>
-        - Indicator codes: SMA, (more codes coming soon...)
+        - Indicator codes: SMA, (more codes coming soon...) <br>
+        - Note: If you want to display an indicator you can only select one stock to view
+
     </div>
 </body>
 

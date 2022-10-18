@@ -11,8 +11,8 @@ date_default_timezone_set('America/New_York');
 <body>
     <form method="get">
         <label for="Intstock">Stock Symbol: </label>
-        <input style="width:100px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock" name="Intstock">
-        <input style="width:100px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock1" name="Intstock1">
+        <input style="width:115px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock" name="Intstock" placeholder="Stock Name">
+        <input style="width:455px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock1" name="Intstock1" placeholder="Optional: Stock Name, Indicator, or Prediction Line">
         <label for="timeframe">Time frame:</label>
         <select name="timeframe" id="timeframe">
             <option value="none" selected disabled hidden>n/a</option>
