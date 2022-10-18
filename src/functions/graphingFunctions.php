@@ -181,14 +181,138 @@ function displayName($stockName = "", $dates, $prices, $prevClose)
     $indexInfo[3] = number_format($index_diffPercent, 2);
 
     if ($indexInfo[0] == 0) {
-        echo $stockName . " " . $indexInfo[1] ."<span style='color:green'> $indexInfo[2] ($indexInfo[3]%)</span>" . str_repeat('&nbsp', 7)."<br>"."Range: ".$dates[0] . " - " . $dates[count($dates) - 1] . str_repeat('&nbsp', 7);
+        echo $stockName . " " . $indexInfo[1] . "<span style='color:green'> $indexInfo[2] ($indexInfo[3]%)</span>" . " Range: " . $dates[0] . " - " . $dates[count($dates) - 1] . str_repeat('&nbsp', 7);
     } elseif ($indexInfo[0] == 1) {
-        echo $stockName . " " . $indexInfo[1]. "<span style='color:red'> $indexInfo[2] ($indexInfo[3]%)</span>"."<br>"."Range: ".$dates[0] . " - " . $dates[count($dates) - 1] . str_repeat('&nbsp', 7);
+        echo $stockName . " " . $indexInfo[1] . "<span style='color:red'> $indexInfo[2] ($indexInfo[3]%)</span>" . " Range: " . $dates[0] . " - " . $dates[count($dates) - 1] . str_repeat('&nbsp', 7);
     } elseif ($indexInfo[0] == 2) {
-        echo $stockName . " " . $indexInfo[1] ."<span style='color:black'> $indexInfo[2] ($indexInfo[3]%)</span>" . str_repeat('&nbsp', 7)."<br>"."Range: ".$dates[0] . " - " . $dates[count($dates) - 1] . str_repeat('&nbsp', 7);
+        echo $stockName . " " . $indexInfo[1] . "<span style='color:black'> $indexInfo[2] ($indexInfo[3]%)</span>" . " Range: " . $dates[0] . " - " . $dates[count($dates) - 1] . str_repeat('&nbsp', 7);
     }
+    echo "<br>";
 }
 
+function displayGraphmultiple($stockName = "", $dates, $prices, $prevClose, $stockName1 = "", $dates1, $prices1, $prevClose1)
+{
+
+    displayName($stockName, $dates, $prices, $prevClose);
+    displayName($stockName1, $dates1, $prices1, $prevClose1);
 
 ?>
 
+
+
+    <div>
+        <canvas id="stockChart" height="50px"></canvas>
+    </div>
+    <div>
+        <canvas id="stockChart1" height="50px"></canvas>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const labels = <?php echo json_encode($dates); ?>;
+        const labels1 = <?php echo json_encode($dates1); ?>;
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                    label: "<?php echo $stockName; ?>",
+                    backgroundColor: 'rgb(0, 188, 212)',
+                    borderColor: 'rgb(0, 188, 212)',
+                    data: <?php echo json_encode($prices); ?>,
+                }]
+        };
+        const data1 = {
+            labels: labels1,
+            datasets: [{
+                    label: "<?php echo $stockName1; ?>",
+                    backgroundColor: 'rgb(52, 67, 235)',
+                    borderColor: 'rgb(52, 67, 235)',
+                    data: <?php echo json_encode($prices1); ?>,
+                }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                elements: {
+                    point: {
+                        radius: 0
+                    }
+                },
+
+                hover: {
+                    mode: 'index',
+                    intersect: false
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            display: false
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+
+            }
+        };
+
+        const config1 = {
+            type: 'line',
+            data: data1,
+            options: {
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                elements: {
+                    point: {
+                        radius: 0
+                    }
+                },
+
+                hover: {
+                    mode: 'index',
+                    intersect: false
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            display: false
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+
+            }
+        };
+
+        const myChart = new Chart(
+            document.getElementById('stockChart'),
+            config
+        );
+        const myChart1 = new Chart(
+            document.getElementById('stockChart1'),
+            config1
+        );
+    </script>
+
+
+<?PHP
+
+}
+
+
+
+?>
