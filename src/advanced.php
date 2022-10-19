@@ -70,6 +70,7 @@ if (isset($_GET['Search'])) {
     if(empty($_GET['Intstock1'])) {
         //this means there is only one stock
         displayGraph($stockName, $dates, $prices, $prevClose);
+        displayStockData($stockName);
         
     } else {
         //need to get data for second stock
@@ -95,9 +96,11 @@ if (isset($_GET['Search'])) {
         //displayGraph($stockName, $dates, $prices, $prevClose);
         //displayGraph($stockName1, $dates1, $prices1, $prevClose1);
         displayGraphmultiple($stockName, $dates, $prices, $prevClose,$stockName1, $dates1, $prices1, $prevClose1);
+
+        displayStockData($stockName);
+        displayStockData($stockName1);
+        
     }
-
-
 
 ?>
 

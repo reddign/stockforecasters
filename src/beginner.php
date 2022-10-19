@@ -33,42 +33,47 @@ display_small_page_heading("Beginner","");
 
 <details>
   <summary>What is a stock?</summary>
-  <p>Answer</p>
+  <p style="font-size:13px; font-style: italic;">- Answer</p>
+</details>
+
+<details>
+  <summary>How do I know what the symbol is for each stock?</summary>
+  <p style="font-size:13px; font-style: italic;"> - It's easy! Just use our stock search tool above. Just type in the name of a company and the ticker symbol will appear. You can then use the stock ticker in the intermediate and advanced sections to look up more information of the stock.</p>
 </details>
 
 <details>
   <summary>What is an ETF?</summary>
-  <p>Answer</p>
+  <p style="font-size:13px; font-style: italic;">- Answer</p>
 </details>
 
 <details>
   <summary>What is the Dow Jones?</summary>
-  <p>Answer</p>
+  <p style="font-size:13px; font-style: italic;">- Answer</p>
 </details>
 
 <details>
   <summary>How do I buy stocks?</summary>
-  <p>Answer</p>
+  <p style="font-size:13px; font-style: italic;">- Answer</p>
 </details>
 
 <details>
   <summary>How do I know what stocks to buy?</summary>
-  <p>Answer</p>
+  <p style="font-size:13px; font-style: italic;">- Answer</p>
 </details>
 
 <details>
   <summary>How much money do I need to but stocks?</summary> 
-  <p>Answer</p>
+  <p style="font-size:13px; font-style: italic;">- Answer</p>
 </details>  
 
 <details>
   <summary>How long should I own a particular stock for?</summary> 
-  <p>Answer</p>
+  <p style="font-size:13px; font-style: italic;">- Answer</p>
 </details>
 
 <details>
   <summary>What is an 401K and IRA?</summary>
-  <p>Answer</p>
+  <p style="font-size:13px; font-style: italic;">- Answer</p>
 </details>
   
 

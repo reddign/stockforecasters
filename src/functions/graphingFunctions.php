@@ -323,6 +323,18 @@ function displayGraphmultiple($stockName = "", $dates, $prices, $prevClose, $sto
 
 }
 
+function displayStockData($stockName)
+{
+    require("functions/simple_html_dom.php");
+    $html = file_get_html('https://finance.yahoo.com/quote/'.$stockName);
+
+    //This gets rest of stock data like PE
+    for ($i = 0; $i < 16; $i++) {
+        $stockDataList = $html->find('td[class="Ta(end) Fw(600) Lh(14px)"]', $i);
+        echo $stockDataList . "<br>";
+    }
+}
+
 
 
 ?>
