@@ -62,12 +62,12 @@ if (isset($_GET['Search'])) {
 
 <details>
   <summary>How much money do I need to but stocks?</summary> 
-  <p style="font-size:13px; font-style: italic;">- Answer</p>
+  <p style="font-size:13px; font-style: italic;">- Very little is needed to start buying stocks! An investment of 50$ can get you started, but to see any substantial profit more money is needed.</p>
 </details>  
 
 <details>
   <summary>How long should I own a particular stock for?</summary> 
-  <p style="font-size:13px; font-style: italic;">- Answer</p>
+  <p style="font-size:13px; font-style: italic;">- Every stock is different, and the stock market is ever-changing. Any particular stock can go up 50$ one day, and then drop 100$ the next day. There is no set time to keep a stock, but it is recommended to sell it when a suitable profit has been achieved.</p>
 </details>
 
 <details>
