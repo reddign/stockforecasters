@@ -1,5 +1,5 @@
 beginner
-- FAQ answers
+- FAQ answers DONE
 - top 30 stocks, only include company from us https://www.kiplinger.com/investing/stocks/603777/30-best-stocks-of-the-past-30-years
 - tables with stock codes to look at
 - add graph picture and explain it
