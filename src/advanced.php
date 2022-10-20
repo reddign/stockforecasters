@@ -109,7 +109,7 @@ if (isset($_GET['Search'])) {
 
     ?>
 
-        <div style="column-count: 4;">
+        <div style="column-count: 4; font-size:13px;">
             <?PHP displayStockData($stockName); ?>
             <?PHP displayStockData($stockName1); ?>
         </div>
