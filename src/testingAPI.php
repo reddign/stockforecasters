@@ -23,18 +23,45 @@
 // echo "<br>";
 // echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][7];
 
-
-   
-
-
-    // echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
-    // echo "<br>";
-    // echo $stock_data['chart']['result'][0]['timestamp'][7]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 UNIX TIME FORMAT
-    // echo "<br>";
-    // echo date("m-d-y h:i:sA", $stock_data['chart']['result'][0]['timestamp'][7]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
-    // echo "<br>";
-    // echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][0]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
+// echo $stock_data['chart']['result'][0]['meta']['regularMarketPrice'];
+// echo "<br>";
+// echo $stock_data['chart']['result'][0]['timestamp'][7]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 UNIX TIME FORMAT
+// echo "<br>";
+// echo date("m-d-y h:i:sA", $stock_data['chart']['result'][0]['timestamp'][7]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
+// echo "<br>";
+// echo $stock_data['chart']['result'][0]['indicators']['quote'][0]['open'][0]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
 
 
+
+/* Example of data
+0. Previous Close	142.41
+1. Open	145.49
+2. Bid	144.94 x 900
+3. Ask	145.20 x 800
+4. Day's Range	140.62 - 146.70
+5. 52 Week Range	129.04 - 182.94
+6. Volume	99,136,610
+7. Avg. Volume	81,340,645
+8. Market Cap	2.31T
+9. Beta (5Y Monthly)	1.25
+10. PE Ratio (TTM)	23.76
+11. EPS (TTM)	6.05
+12. Earnings Date	Oct 26, 2022
+13. Forward Dividend & Yield	0.92 (0.65%)
+14. Ex-Dividend Date	Aug 05, 2022
+15. 1y Target Est	183.69
+*/
+
+
+
+// $title = $html->find('title', 0);
+// $title1 = $html->find("#quote-summary tbody", 1);
+
+// //$image = $html->find('img', 0);
+
+// echo $title->plaintext."<br>\n";
+// echo $title1->plaintext."<br>\n";
+// echo $image->src;
 
 ?>
+

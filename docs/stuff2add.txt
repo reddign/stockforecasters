@@ -1,0 +1,25 @@
+beginner
+- FAQ answers
+- tables with stock codes to look at
+- add graph picture and explain it
+- able to look up company name and returns ticker symbol (example: you type "Apple" and it returns "AAPL") https://gist.github.com/4f77616973/bd7fc6ed95e6abacafa55084867c44c3
+
+
+intermediate
+- trend lines
+- multiple stocks on one graph DONE
+
+
+advanced
+- predictions
+- trend lines
+- multiple stocks on one graph DONE
+
+
+other
+- add to about page
+- login stuff using CIA code from stuff
+
+research to do
+- prediction methods
+- API for stock info, news, and stock ticker
