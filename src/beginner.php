@@ -57,7 +57,7 @@ if (isset($_GET['Search'])) {
 
 <details>
   <summary>How do I know what stocks to buy?</summary>
-  <p style="font-size:13px; font-style: italic;">- Answer</p>
+  <p style="font-size:13px; font-style: italic;">- refer to stuff2add.txt document</p>
 </details>
 
 <details>
