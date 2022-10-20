@@ -1,4 +1,6 @@
 <?PHP
+require("functions/simple_html_dom.php");
+
 //the below paths allow access to data from api
 //this api is free to use with no request limits
 //Valid intervals: 1m, 2m, 5m, 15m, 30m, 60m, 90m, 1h, 1d, 5d, 1wk, 1mo, 3mo
@@ -63,8 +65,8 @@
 // echo $title1->plaintext."<br>\n";
 // echo $image->src;
 
-$html = file_get_html('https://www.google.com/search?q=stock+market+news&tbm=nws&source=univ&tbo=u&sa=X&ved=2ahUKEwiyxfrMiu_6AhXaEFkFHU85CcwQt8YBegQIDxAL&biw=1200&bih=823&dpr=2');
-$stockDataList = $html->find('div[class="GyAeWb"]',0);
+$html = file_get_html('https://news.google.com/search?for=stock+market+today&hl=en-US&gl=US&ceid=US%3Aen');
+$stockDataList = $html->find('div[class="NiLAwe mi8Lec gAl5If jVwmLb Oc0wGc R7GTQ keNKEd j7vNaf nID9nc"]',1);
 echo $stockDataList;
 
 
