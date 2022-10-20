@@ -1,4 +1,5 @@
 <?PHP
+require("functions/simple_html_dom.php");
 
 function displayGraph($stockName = "", $dates, $prices, $prevClose)
 {
@@ -325,16 +326,19 @@ function displayGraphmultiple($stockName = "", $dates, $prices, $prevClose, $sto
 
 function displayStockData($stockName)
 {
-    require("functions/simple_html_dom.php");
+    
     $html = file_get_html('https://finance.yahoo.com/quote/'.$stockName);
 
     //This gets rest of stock data like PE
     for ($i = 0; $i < 16; $i++) {
         $stockDataList = $html->find('td[class="Ta(end) Fw(600) Lh(14px)"]', $i);
-        echo $stockDataList . "<br>";
+        $stockDataListName = $html->find('td[class="C($primaryColor) W(51%)"]', $i);
+        echo $stockDataListName . ": " . $stockDataList . "<br>";
+        if($i==7 || $i==15) echo "<br>";
     }
+  
 }
 
-
+'td[class="C($primaryColor) W(51%)"]'
 
 ?>
