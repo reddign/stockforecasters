@@ -20,7 +20,10 @@ display_small_page_heading("Beginner", "");
 
 <?PHP
 if (isset($_GET['Search'])) {
-  echo "Stock Ticker: ";
+  $html = file_get_html('https://www.cnbc.com/search/?query='.$_GET['companyName']);
+  $companyName = $html->find('span[class="SearchGroup-itemIdentifier"]', 0);
+
+  echo "Stock Ticker: ".$companyName->plaintext;
 }
 ?>
 
