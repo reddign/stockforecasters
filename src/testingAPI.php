@@ -63,5 +63,12 @@
 // echo $title1->plaintext."<br>\n";
 // echo $image->src;
 
+$html = file_get_html('https://www.google.com/search?q=stock+market+news&tbm=nws&source=univ&tbo=u&sa=X&ved=2ahUKEwiyxfrMiu_6AhXaEFkFHU85CcwQt8YBegQIDxAL&biw=1200&bih=823&dpr=2');
+$stockDataList = $html->find('div[class="GyAeWb"]',0);
+echo $stockDataList;
+
+
+
+
 ?>
 
