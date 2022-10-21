@@ -66,11 +66,11 @@ require("functions/simple_html_dom.php");
 // echo $image->src;
 
 $html = file_get_html('https://news.google.com/search?for=stock+market+today&hl=en-US&gl=US&ceid=US%3Aen');
-$stockDataList = $html->find('div[class="NiLAwe mi8Lec gAl5If jVwmLb Oc0wGc R7GTQ keNKEd j7vNaf nID9nc"]',1);
-echo $stockDataList;
 
-
-
+//This gets rest of stock data like PE
+$stockDataListName = $html->find('h3[class="ipQwMb ekueJc RD0gLb"', 0);
+echo $stockDataListName;
 
 ?>
+
 
