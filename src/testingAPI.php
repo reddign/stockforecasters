@@ -74,6 +74,7 @@ $image1 = $html->find('img[class=W(100%) Trs($ntkLeadImgFilterTrans) dustyImage:
 
 echo $data1;
 echo $image1;
+echo "<br>";
 //echo $link1; This prints article title, picture, with hyperlink prob wont use this
 
 //This gets links for all stories

@@ -15,7 +15,7 @@ display_small_page_heading("EC Stock Forecasters");
   <br><br> Welcome to the main page of the EC Stock Forecasters <br> <br>
 </h4>
 
-<h3 style="text-align:center" ;>
+<h3 style="text-align:center">
 
   <?PHP
   indexPrice('Dow', 'https://query1.finance.yahoo.com/v8/finance/chart/^DJI?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=1d');
@@ -28,6 +28,7 @@ display_small_page_heading("EC Stock Forecasters");
 </h3>
 
 <h2> News </h2>
+<?PHP displayNews();?>
 
 </html>
 

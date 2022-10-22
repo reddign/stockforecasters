@@ -113,7 +113,6 @@ if (isset($_GET['Search'])) {
             <?PHP displayStockData($stockName); ?>
             <?PHP displayStockData($stockName1); ?>
         </div>
-
     <?PHP
 
     }
