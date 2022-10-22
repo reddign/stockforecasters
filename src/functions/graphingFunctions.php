@@ -341,4 +341,8 @@ function displayStockData($stockName)
   
 }
 
+function displayNews() {
+    
+}
+
 ?>
