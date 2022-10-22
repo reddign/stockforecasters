@@ -326,23 +326,52 @@ function displayGraphmultiple($stockName = "", $dates, $prices, $prevClose, $sto
 
 function displayStockData($stockName)
 {
-    
-    $html = file_get_html('https://finance.yahoo.com/quote/'.$stockName);
+
+    $html = file_get_html('https://finance.yahoo.com/quote/' . $stockName);
 
     //This gets rest of stock data like PE
     for ($i = 0; $i < 16; $i++) {
         $stockDataList = $html->find('td[class="Ta(end) Fw(600) Lh(14px)"]', $i);
         $stockDataListName = $html->find('td[class="C($primaryColor) W(51%)"]', $i);
         echo $stockDataListName . ": " . $stockDataList . "<br>";
-        if($i==7) echo "<br>";
+        if ($i == 7) echo "<br>";
         // if($i==11) $i=13;
     }
     echo "<br>";
-  
 }
 
-function displayNews() {
-    
+function displayNews()
+{
+    $html = file_get_html('https://finance.yahoo.com');
+
+    //This is for the main story, it has different html tags
+    $data1 = $html->find('h2[class=Fz(22px)--md1100 Lh(25px)--md1100 Fw(b) Tsh($ntkTextShadow) Td(u):h Fz(25px) Lh(31px)]', 0);
+    $link1 = $html->find('div[class="Pos(a) B(0) Start(0) End(0) Bg($ntkLeadGradient) Pstart(25px) Pstart(18px)--md1100 Pt(50px) Pend(45px) Pend(25px)--md1100 Bdrsbend(2px) Bdrsbstart(2px)"]', 0);
+    $image1 = $html->find('img[class=W(100%) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter) Bdrs(2px)]', 0);
+
+    echo $data1;
+    echo $image1;
+    //echo $link1; This prints article title, picture, with hyperlink prob wont use this
+
+    //This gets links for all stories
+    foreach ($link1->find('a') as $element)
+        echo $element->href . '<br>';
+
+
+    //This gets links for all stories other than main story
+    $link2 = $html->find('div[class=Mstart(67%)]', 0);
+    foreach ($link2->find('a') as $element)
+        echo $element->href . '<br>';
+
+    //This gets all article titles and pictures
+    for ($i = 0; $i < 4; $i++) {
+        $data2 = $html->find('h3[class=Fz(14px)--md1100 Lh(16px)--md1100 Fw(700) Fz(16px) Lh(18px) LineClamp(3,54px) Va(m) Tov(e)]', $i);
+        $image2 = $html->find('img[class=W(33%) D(ib) Mend(16px) Mend(12px)--md1100 Fl(start) Bdrs(2px) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter)]', $i);
+        echo $data2;
+        echo $image2;
+    }
+    //echo $link2;  This prints article title, picture, with hyperlink. prob wont use this
+
 }
 
 ?>
