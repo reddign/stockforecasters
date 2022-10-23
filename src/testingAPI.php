@@ -72,7 +72,7 @@ $data1 = $html->find('h2[class=Fz(22px)--md1100 Lh(25px)--md1100 Fw(b) Tsh($ntkT
 $link1 = $html->find('div[class="Pos(a) B(0) Start(0) End(0) Bg($ntkLeadGradient) Pstart(25px) Pstart(18px)--md1100 Pt(50px) Pend(45px) Pend(25px)--md1100 Bdrsbend(2px) Bdrsbstart(2px)"]', 0);
 $image1 = $html->find('img[class=W(100%) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter) Bdrs(2px)]', 0);
 
-echo $data1;
+echo $data1->plaintext;
 echo $image1;
 echo "<br>";
 //echo $link1; This prints article title, picture, with hyperlink prob wont use this

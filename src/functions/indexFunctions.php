@@ -103,19 +103,34 @@ function displayNews()
 
 ?>
 
-  <html> <a style="text-decoration:none;"; href=<?PHP echo $allStoryURL[0]; ?>><?PHP echo $mainStoryTitle; echo $mainStoryPicture; ?></a>
+  <html> <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[0]; ?>>
+
+    <?PHP echo $mainStoryTitle->plaintext;
+    echo "<br>";
+    ?>
+    <img src="<?PHP echo $mainStoryPicture->src; ?>" height="225" width="400">
+    <?PHP echo "<br>"; ?>
 
   </html>
 
   <?PHP
   //This gets all article titles and pictures
-  for ($i = 0; $i < 4; $i++) {
+  for ($i = 0; $i < 3; $i++) {
     $subStoryTitle = $html->find('h3[class=Fz(14px)--md1100 Lh(16px)--md1100 Fw(700) Fz(16px) Lh(18px) LineClamp(3,54px) Va(m) Tov(e)]', $i);
     $subStoryPicture = $html->find('img[class=W(33%) D(ib) Mend(16px) Mend(12px)--md1100 Fl(start) Bdrs(2px) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter)]', $i);
 
 
   ?>
-    <html><a style="text-decoration:none;"; href=<?PHP echo $allStoryURL[$i+1]; ?>><?PHP echo $subStoryTitle; echo $subStoryPicture; ?></a></html>
+    <html><a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[$i + 1]; ?>>
+
+    <?PHP echo $subStoryTitle->plaintext;
+    echo "<br>";
+    ?>
+    <!-- <img src="<?PHP echo $subStoryPicture->src; ?>" height="90" width="160"> -->
+    <img src="<?PHP echo $subStoryPicture->src; ?>">
+    <?PHP echo "<br>"; ?>
+
+    </html>
 
 <?PHP
 
