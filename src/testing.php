@@ -16,17 +16,8 @@ date_default_timezone_set('America/New_York');
         <input type="submit" name="Search" id="Search" value="Search" />
         <label for="timeframe">Time frame:</label>
         <select name="timeframe" id="timeframe">
-            <option value="1d"selected hidden>1 Day</option>
-            <option value="5d">5 Days</option>
-            <option value="1mo">1 Month</option>
-            <option value="3mo">3 Months</option>
-            <option value="6mo">6 Months</option>
-            <option value="1y">1 Year</option>
-            <option value="2y">2 Years</option>
-            <option value="5y">5 Years</option>
-            <option value="10y">10 Years</option>
-            <option value="ytd">Year to Date</option>
-            <option value="max">Max</option>
+            <option value="1d"selected>1 Day</option>
+
         </select>
     </form>
 
@@ -42,6 +33,19 @@ date_default_timezone_set('America/New_York');
         </div>
     </details>
 
+    <form method="get">
+    <input type="submit" name="time" id="1d" value="1d" />
+    <input type="submit" name="time" id="5d" value="5d" />
+    <input type="submit" name="time" id="1mo" value="1mo" />
+    <input type="submit" name="time" id="3mo" value="3mo" />
+    <input type="submit" name="time" id="6mo" value="6mo" />
+    <input type="submit" name="time" id="1y" value="1y" />
+    <input type="submit" name="time" id="2y" value="2y" />
+    <input type="submit" name="time" id="5y" value="5y" />
+    <input type="submit" name="time" id="10y" value="10y" />
+    <input type="submit" name="time" id="ytd" value="ytd" />
+    <input type="submit" name="time" id="max" value="max" />
+    </form>
 
 
 
@@ -120,6 +124,11 @@ if (isset($_GET['Search'])) {
 
 <?PHP
 }
+
+if (isset($_GET['time'])){
+    echo $_GET[""]
+}
+
 
 require("includes/footer.php");
 ?>
