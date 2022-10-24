@@ -110,7 +110,7 @@ function displayNews()
     <?PHP echo $mainStoryTitle->plaintext;
     echo "<br>";
     ?>
-    <img src="<?PHP echo $mainStoryPicture->src; ?>" height="299px" width="534px">
+    <img src="<?PHP echo $mainStoryPicture->src; ?>" height="312px" width="561px">
     <?PHP echo "<br>"; ?>
 
   </html>
