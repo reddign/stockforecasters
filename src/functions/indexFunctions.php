@@ -102,43 +102,50 @@ function displayNews()
   }
 
 ?>
+<div style="column-count: 2; height:347px;">
 
-  <html> <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[0]; ?>>
+  
+  <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[0]; ?>>
 
     <?PHP echo $mainStoryTitle->plaintext;
     echo "<br>";
     ?>
-    <img src="<?PHP echo $mainStoryPicture->src; ?>" height="225" width="400">
+    <img src="<?PHP echo $mainStoryPicture->src; ?>" height="299px" width="534px">
     <?PHP echo "<br>"; ?>
 
   </html>
 
   <?PHP
   //This gets all article titles and pictures
-  echo "<br>";
+  //echo "<br>";
   for ($i = 0; $i < 3; $i++) {
     $subStoryTitle = $html->find('h3[class=Fz(14px)--md1100 Lh(16px)--md1100 Fw(700) Fz(16px) Lh(18px) LineClamp(3,54px) Va(m) Tov(e)]', $i);
     $subStoryPicture = $html->find('img[class=W(33%) D(ib) Mend(16px) Mend(12px)--md1100 Fl(start) Bdrs(2px) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter)]', $i);
 
 
   ?>
-    <html><a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[$i + 1]; ?>>
+    <html>
+    <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[$i + 1]; ?>>
 
     <?PHP echo $subStoryTitle->plaintext;
     echo "<br>";
     ?>
-    <img src="<?PHP echo $subStoryPicture->src; ?>" height="110" width="110">
+    <img src="<?PHP echo $subStoryPicture->src; ?>" height="88px" width="88px">
     <!-- <img src="<?PHP echo $subStoryPicture->src; ?>"> -->
     <?PHP echo "<br>"; ?>
 
-    </html>
+  
+
+    
 
 <?PHP
 
   }
+  ?>
+  </div>
+  <?PHP
 
   //echo $link2;  This prints article title, picture, with hyperlink. prob wont use this
 
 }
-
 ?>

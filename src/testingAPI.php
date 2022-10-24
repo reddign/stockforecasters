@@ -65,37 +65,140 @@ require("functions/simple_html_dom.php");
 // echo $title1->plaintext."<br>\n";
 // echo $image->src;
 
+
 $html = file_get_html('https://finance.yahoo.com');
 
+//[0] = main story [1] = sub story 1 [1] = sub story 2 [2] = sub story 3
+$allStoryURL = array();
 
-$data1 = $html->find('h2[class=Fz(22px)--md1100 Lh(25px)--md1100 Fw(b) Tsh($ntkTextShadow) Td(u):h Fz(25px) Lh(31px)]', 0);
-$link1 = $html->find('div[class="Pos(a) B(0) Start(0) End(0) Bg($ntkLeadGradient) Pstart(25px) Pstart(18px)--md1100 Pt(50px) Pend(45px) Pend(25px)--md1100 Bdrsbend(2px) Bdrsbstart(2px)"]', 0);
-$image1 = $html->find('img[class=W(100%) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter) Bdrs(2px)]', 0);
+$mainStoryTitle = $html->find('h2[class=Fz(22px)--md1100 Lh(25px)--md1100 Fw(b) Tsh($ntkTextShadow) Td(u):h Fz(25px) Lh(31px)]', 0);
+$mainStoryURL = $html->find('div[class="Pos(a) B(0) Start(0) End(0) Bg($ntkLeadGradient) Pstart(25px) Pstart(18px)--md1100 Pt(50px) Pend(45px) Pend(25px)--md1100 Bdrsbend(2px) Bdrsbstart(2px)"]', 0);
+$mainStoryPicture = $html->find('img[class=W(100%) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter) Bdrs(2px)]', 0);
 
-echo $data1->plaintext;
-echo $image1;
-echo "<br>";
 //echo $link1; This prints article title, picture, with hyperlink prob wont use this
 
-//This gets links for all stories
-foreach($link1->find('a') as $element) 
-        echo $element->href . '<br>';
+//This gets links for main stor
+foreach ($mainStoryURL->find('a') as $element)
+        $allStoryURL[0] = $element->href;
 
-//This gets links for all stories
-$link2 = $html->find('div[class=Mstart(67%)]', 0);
-foreach($link2->find('a') as $element) 
-        echo $element->href . '<br>';
 
-//This gets all article titles and pictures
-for($i=0;$i<4;$i++) {
-    $data2 = $html->find('h3[class=Fz(14px)--md1100 Lh(16px)--md1100 Fw(700) Fz(16px) Lh(18px) LineClamp(3,54px) Va(m) Tov(e)]', $i);
-    $image2 = $html->find('img[class=W(33%) D(ib) Mend(16px) Mend(12px)--md1100 Fl(start) Bdrs(2px) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter)]', $i);
-    echo $data2;
-    echo $image2;
-
+//This gets links for all sub stories
+$j = 1;
+$subStoryURL = $html->find('div[class=Mstart(67%)]', 0);
+foreach ($subStoryURL->find('a') as $element) {
+        $allStoryURL[$j++] = $element->href;
 }
-//echo $link2;  This prints article title, picture, with hyperlink. prob wont use this
+
+?>
+
+<html>
+<table>
+        <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[0]; ?>>
+
+                <tr>
+                        <td>
+                                <?PHP echo $mainStoryTitle->plaintext;
+                                echo "<br>";
+                                ?>
+                                <img src="<?PHP echo $mainStoryPicture->src; ?>" height="320px" width="570px">
+                                <?PHP echo "<br>"; ?>
+                        </td>
+
+</html>
+
+<?PHP
+//This gets all article titles and pictures
+echo "<br>";
+
+$subStoryTitle = $html->find('h3[class=Fz(14px)--md1100 Lh(16px)--md1100 Fw(700) Fz(16px) Lh(18px) LineClamp(3,54px) Va(m) Tov(e)]', 0);
+$subStoryPicture = $html->find('img[class=W(33%) D(ib) Mend(16px) Mend(12px)--md1100 Fl(start) Bdrs(2px) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter)]', 0);
+
+$subStoryTitle = $html->find('h3[class=Fz(14px)--md1100 Lh(16px)--md1100 Fw(700) Fz(16px) Lh(18px) LineClamp(3,54px) Va(m) Tov(e)]', 1);
+$subStoryPicture = $html->find('img[class=W(33%) D(ib) Mend(16px) Mend(12px)--md1100 Fl(start) Bdrs(2px) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter)]', 1);
+
+$subStoryTitle = $html->find('h3[class=Fz(14px)--md1100 Lh(16px)--md1100 Fw(700) Fz(16px) Lh(18px) LineClamp(3,54px) Va(m) Tov(e)]', 2);
+$subStoryPicture = $html->find('img[class=W(33%) D(ib) Mend(16px) Mend(12px)--md1100 Fl(start) Bdrs(2px) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter)]', 2);
+
+$subStoryTitle = $html->find('h3[class=Fz(14px)--md1100 Lh(16px)--md1100 Fw(700) Fz(16px) Lh(18px) LineClamp(3,54px) Va(m) Tov(e)]', 3);
+$subStoryPicture = $html->find('img[class=W(33%) D(ib) Mend(16px) Mend(12px)--md1100 Fl(start) Bdrs(2px) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter)]', 3);
+
 
 ?>
 
 
+<html>
+<td>
+        <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[1]; ?>>
+
+                <?PHP echo $subStoryTitle->plaintext;
+                echo "<br>";
+                ?>
+                <img src="<?PHP echo $subStoryPicture->src; ?>" height="150px" width="150px">
+                <?PHP echo "<br>"; ?>
+</td>
+</tr>
+
+<tr>
+        <html>
+        <td> </td>
+        <td>
+                <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[2]; ?>>
+
+                        <?PHP echo $subStoryTitle->plaintext;
+                        echo "<br>";
+                        ?>
+                        <img src="<?PHP echo $subStoryPicture->src; ?>" height="150px" width="150px">
+                        <?PHP echo "<br>"; ?>
+        </td>
+
+        <td> </td>
+        <td>
+                <html>
+                <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[3]; ?>>
+
+                        <?PHP echo $subStoryTitle->plaintext;
+                        echo "<br>";
+                        ?>
+                        <img src="<?PHP echo $subStoryPicture->src; ?>" height="150px" width="150px">
+                        <?PHP echo "<br>"; ?>
+        </td>
+<tr>
+        </table>
+
+</html>
+
+<?PHP
+
+
+
+//echo $link2;  This prints article title, picture, with hyperlink. prob wont use this
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
+<table>
+        <tr>
+                <td>Name</td>
+                <td> 17</td>
+        </tr>
+        <tr>
+                <td></td>
+                <td> 17</td>
+        </tr>
+        <tr>
+                <td></td>
+                <td> 17</td>
+        </tr>
+</table>
