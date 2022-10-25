@@ -105,12 +105,12 @@ function displayNews()
 <div style="column-count: 2; height:347px;">
 
   
-  <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[0]; ?>>
+  <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[0]; ?> target="_blank">
 
     <?PHP echo $mainStoryTitle->plaintext;
     echo "<br>";
     ?>
-    <img src="<?PHP echo $mainStoryPicture->src; ?>" height="312px" width="561px">
+    <img src="<?PHP echo $mainStoryPicture->src; ?>" height="313px" width="561px">
     <?PHP echo "<br>"; ?>
 
   </html>
@@ -125,7 +125,7 @@ function displayNews()
 
   ?>
     <html>
-    <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[$i + 1]; ?>>
+    <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[$i + 1]; ?> target="_blank">
 
     <?PHP echo $subStoryTitle->plaintext;
     echo "<br>";
