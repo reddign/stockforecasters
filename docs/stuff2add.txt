@@ -13,7 +13,7 @@ intermediate
 
 advanced
 - predictions
-- trend lines
+- trend lines (sma, bollinger bands, macd, rsi)
 - multiple stocks on one graph DONE
 
 
