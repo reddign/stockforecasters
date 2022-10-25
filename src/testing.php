@@ -77,6 +77,77 @@ if (isset($_GET['Search'])) {
 
     if (empty($_GET['Intstock1'])) {
         //this means there is only one stock
+
+        displayGraph($stockName, $dates, $prices, $prevClose);
+?>
+        <div style="column-count: 2;">
+            <?PHP displayStockData($stockName); ?>
+        </div>
+
+    <?PHP
+
+    } else {
+        //need to get data for second stock
+        $stockName1 = strtoupper($_GET['Intstock1']);
+        //this returns the array "url" which has a bunch of information that is used in later function calls
+        $url1 = timeInterval($_GET['Intstock1'], $_GET['timeframe']);
+        $url1[3] = json_decode(file_get_contents($url1[0]), true);
+
+        $dates1 = array();
+        $prices1 = array();
+
+        for ($i = 0; $i < $url1[1]; $i++) {
+            $dates1[$i] = date($url1[2], $url1[3]['chart']['result'][0]['timestamp'][$i]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
+            $prices1[$i] =  $url1[3]['chart']['result'][0]['indicators']['quote'][0]['close'][$i]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
+        }
+
+        if ($url1[2] == "h:iA") {
+            $prevClose1 = $url1[3]['chart']['result'][0]['meta']['chartPreviousClose'];
+        } else {
+            $prevClose1 = $url1[3]['chart']['result'][0]['indicators']['quote'][0]['close'][0];
+        }
+        //displayGraph($stockName, $dates, $prices, $prevClose);
+        //displayGraph($stockName1, $dates1, $prices1, $prevClose1);
+        displayGraphmultiple($stockName, $dates, $prices, $prevClose, $stockName1, $dates1, $prices1, $prevClose1);
+
+    ?>
+        <div style="column-count: 4; font-size:13px;">
+            <?PHP displayStockData($stockName); ?>
+            <?PHP displayStockData($stockName1); ?>
+        </div>
+    <?PHP
+
+    }
+
+    ?>
+
+<?PHP
+}
+
+elseif (isset($_GET['time'])){
+    
+    $stockName = strtoupper($_GET['Intstock']);
+    //this returns the array "url" which has a bunch of information that is used in later function calls
+    $url = timeInterval($_GET['Intstock'], $_GET['time']);
+    $url[3] = json_decode(file_get_contents($url[0]), true);
+
+    $dates = array();
+    $prices = array();
+
+    for ($i = 0; $i < $url[1]; $i++) {
+        $dates[$i] = date($url[2], $url[3]['chart']['result'][0]['timestamp'][$i]); #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400 M/D/Y H:M:S FORMAT
+        $prices[$i] =  $url[3]['chart']['result'][0]['indicators']['quote'][0]['close'][$i]; #0=930 1=1030 2=1130 3=1230 4=130 5=230 6=330 7=400
+    }
+
+    if ($url[2] == "h:iA") {
+        $prevClose = $url[3]['chart']['result'][0]['meta']['chartPreviousClose'];
+    } else {
+        $prevClose = $url[3]['chart']['result'][0]['indicators']['quote'][0]['close'][0];
+    }
+
+
+    if (empty($_GET['Intstock1'])) {
+        //this means there is only one stock
         displayGraph($stockName, $dates, $prices, $prevClose);
 ?>
 
@@ -125,9 +196,6 @@ if (isset($_GET['Search'])) {
 <?PHP
 }
 
-if (isset($_GET['time'])){
-    echo $_GET[""]
-}
 
 
 require("includes/footer.php");
