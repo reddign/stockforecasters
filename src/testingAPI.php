@@ -1,7 +1,7 @@
-<?php
-require("functions/database_functions.php");
+<?PHP
+require("functions/databaseFunctions.php");
 
 
-echo "hi";
 name2symbol("apple");
 ?>
+
