@@ -2,7 +2,7 @@
 require("functions/basic_html_functions.php");
 require("includes/header.php");
 require("functions/simple_html_dom.php");
-require("functions/database_functions.php");
+require("functions/databaseFunctions.php");
 
 display_small_page_heading("Beginner", "");
 
@@ -21,10 +21,7 @@ display_small_page_heading("Beginner", "");
 
 <?PHP
 if (isset($_GET['Search'])) {
-  $html = file_get_html('https://www.cnbc.com/search/?query='.$_GET['companyName']);
-  $companyName = $html->find('span[class="SearchGroup-itemIdentifier"]', 0);
-
-  echo "Stock Ticker: ".$companyName->plaintext;
+  name2symbol($_GET['companyName']);
 }
 ?>
 
@@ -62,12 +59,12 @@ if (isset($_GET['Search'])) {
 </details>
 
 <details>
-  <summary>How much money do I need to buy stocks?</summary> 
+  <summary>How much money do I need to buy stocks?</summary>
   <p style="font-size:13px; font-style: italic;">- You can invest as little as $1. Most online brokers offer partial shares. This means you can buy a percentage of one share. For example, if a stock was $100 and you only have $5 you can buy 5% of a share. $100 / $5 = 5% of a share</p>
-</details>  
+</details>
 
 <details>
-  <summary>How long should I own a particular stock for?</summary> 
+  <summary>How long should I own a particular stock for?</summary>
   <p style="font-size:13px; font-style: italic;">- Every stock is different, and the stock market is ever-changing. Any particular stock can go up 50$ one day, and then drop 100$ the next day. There is no set time to keep a stock, but it is recommended to sell it when a suitable profit has been achieved. Long-term investing is often the best course of action.</p>
 </details>
 

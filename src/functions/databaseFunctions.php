@@ -24,6 +24,7 @@ function name2symbol($name = "")
     $data = $pdo->query("SELECT * FROM allStocks WHERE stockname LIKE '%$name%';")->fetchAll();
 
     foreach ($data as $row) {
-        echo $row['stockticker'] . " " . $row['stockname'] . "<br>";
+        echo ' - '.$row['stockticker'] . "  " . $row['stockname'] . "<br>";
+
     }
 }

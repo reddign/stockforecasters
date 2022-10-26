@@ -86,10 +86,12 @@ function displayNews()
   $mainStoryTitle = $html->find('h2[class=Fz(22px)--md1100 Lh(25px)--md1100 Fw(b) Tsh($ntkTextShadow) Td(u):h Fz(25px) Lh(31px)]', 0);
   $mainStoryURL = $html->find('div[class="Pos(a) B(0) Start(0) End(0) Bg($ntkLeadGradient) Pstart(25px) Pstart(18px)--md1100 Pt(50px) Pend(45px) Pend(25px)--md1100 Bdrsbend(2px) Bdrsbstart(2px)"]', 0);
   $mainStoryPicture = $html->find('img[class=W(100%) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter) Bdrs(2px)]', 0);
+  $mainStoryDescription = $html->find('p[class=Fz(12px) Fw(n) Lh(14px) LineClamp(3,42px) Pt(6px) Tov(e)]', 0);
+  $mainStorySource = $html->find('p[class=Fz(12px) LineClamp(2,34px) Pt(6px) Pb(22px)]', 0);
 
   //echo $link1; This prints article title, picture, with hyperlink prob wont use this
 
-  //This gets links for main stor
+  //This gets links for main story
   foreach ($mainStoryURL->find('a') as $element)
     $allStoryURL[0] = $element->href;
 
@@ -102,50 +104,48 @@ function displayNews()
   }
 
 ?>
-<div style="column-count: 2; height:347px;">
+  <!-- <div style="text-align: center;"> -->
 
-  
+
   <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[0]; ?> target="_blank">
 
-    <?PHP echo $mainStoryTitle->plaintext;
-    echo "<br>";
-    ?>
+    <?PHP echo $mainStoryTitle->plaintext . "<br>"; ?>
+
+    <div style="font-size: 10px;"> <?PHP echo $mainStoryDescription . $mainStorySource; ?> </div>
     <img src="<?PHP echo $mainStoryPicture->src; ?>" height="313px" width="561px">
-    <?PHP echo "<br>"; ?>
+    <?PHP echo "<br>"."<br>"."<br>"."More News"."<br>"; ?>
 
-  </html>
+    </html>
+    <!-- </div> -->
+    <?PHP
+    //This gets all article titles and pictures
+    //echo "<br>";
+    for ($i = 0; $i < 3; $i++) {
+      $subStoryTitle = $html->find('h3[class=Fz(14px)--md1100 Lh(16px)--md1100 Fw(700) Fz(16px) Lh(18px) LineClamp(3,54px) Va(m) Tov(e)]', $i);
+      $subStoryPicture = $html->find('img[class=W(33%) D(ib) Mend(16px) Mend(12px)--md1100 Fl(start) Bdrs(2px) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter)]', $i);
+      $subStorySource = $html->find('p[class=Fz(11px) C($tertiaryColor) Mt(3px)]', $i);
 
-  <?PHP
-  //This gets all article titles and pictures
-  //echo "<br>";
-  for ($i = 0; $i < 3; $i++) {
-    $subStoryTitle = $html->find('h3[class=Fz(14px)--md1100 Lh(16px)--md1100 Fw(700) Fz(16px) Lh(18px) LineClamp(3,54px) Va(m) Tov(e)]', $i);
-    $subStoryPicture = $html->find('img[class=W(33%) D(ib) Mend(16px) Mend(12px)--md1100 Fl(start) Bdrs(2px) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter)]', $i);
 
-
-  ?>
-    <html>
-    <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[$i + 1]; ?> target="_blank">
-
-    <?PHP echo $subStoryTitle->plaintext;
-    echo "<br>";
     ?>
-    <img src="<?PHP echo $subStoryPicture->src; ?>" height="88px" width="88px">
-    <!-- <img src="<?PHP echo $subStoryPicture->src; ?>"> -->
-    <?PHP echo "<br>"; ?>
+      <html>
+      <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[$i + 1]; ?> target="_blank">
 
-  
+        <?PHP echo "<br>" . $subStoryTitle->plaintext . $subStorySource; ?>
+        <!-- <img src="<?PHP echo $subStoryPicture->src; ?>" height="88px" width="88px"> -->
+        <!-- <img src="<?PHP echo $subStoryPicture->src; ?>"> -->
 
-    
 
-<?PHP
+
+
+
+      <?PHP
+
+    }
+      ?>
+
+    <?PHP
+
+    //echo $link2;  This prints article title, picture, with hyperlink. prob wont use this
 
   }
-  ?>
-  </div>
-  <?PHP
-
-  //echo $link2;  This prints article title, picture, with hyperlink. prob wont use this
-
-}
-?>
+    ?>
