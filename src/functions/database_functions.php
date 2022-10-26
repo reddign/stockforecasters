@@ -1,4 +1,5 @@
 <?php
+require("../../config.php");
  function connect_to_db(){
     
     global $database,$databasehost,$databaseuser,$databasepassword;
@@ -13,9 +14,15 @@
         echo "Database error ".$e->getMessage();
         exit();
     }
-        
-
-    
-
     
  }
+
+ function name2symbol($name="")
+ {
+    $pdo = connect_to_db();
+    $data = $pdo->query("SELECT * FROM allStocks WHERE stockname LIKE '%$name%';")->fetchAll();
+    
+    foreach($data as $row) {
+        echo $row['stockticker']." ".$row['stockname']."<br>";
+    }
+}

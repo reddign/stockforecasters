@@ -2,13 +2,14 @@
 require("functions/basic_html_functions.php");
 require("includes/header.php");
 require("functions/simple_html_dom.php");
+require("functions/database_functions.php");
+
 display_small_page_heading("Beginner", "");
 
 ?>
 
 <!-- Here we will add the code to look up stock ticker -->
 <h2>Stock Ticker Search Tool</h2>
-
 
 
 
