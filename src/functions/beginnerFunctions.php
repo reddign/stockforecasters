@@ -3,10 +3,16 @@ require("functions/database_functions.php");
 
 function name2symbol($name = " ")
 {
-    echo "Works";
-    $database = connect_to_db();
-    $data = $database->query("SELECT * FROM allStocks");
-    $f =  $data->fetchAll(PDO::FETCH_ASSOC);
-    echo $f['stockname'];
+    try {
+        $database = connect_to_db();
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    
+    $data = $database->query("SELECT * FROM u413142534_stocks.allStocks;");
 
+    foreach($data as $row) {
+        echo $row['stockticker'].$row['stockname'];
+    }
+    $database = null;
 }
