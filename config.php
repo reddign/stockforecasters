@@ -4,3 +4,4 @@ $database = "u413142534_stocks";
 $databaseuser = "u413142534_forecaster";
 $databasepassword = "BullzNB3ars";
 ?>
+
