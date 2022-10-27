@@ -9,7 +9,9 @@ display_small_page_heading("EC Stock Forecasters");
 
 <html>
 <h4 style="text-align:center">
+  <b>
     <?PHP displayTime(); ?>
+  </b>
   <br><br> Welcome to the main page of the EC Stock Forecasters <br> <br>
 </h4>
 
