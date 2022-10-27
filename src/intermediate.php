@@ -15,7 +15,7 @@ date_default_timezone_set('America/New_York');
         <input style="width:310px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock1" name="Intstock1" placeholder="Optional: Stock Name or Indicator">
         <label for="timeframe">Time frame:</label>
         <select name="timeframe" id="timeframe">
-            <option value="none" selected disabled hidden>n/a</option>
+            <!-- <option value="none" selected disabled hidden>n/a</option> -->
             <option value="1d">1 Day</option>
             <option value="5d">5 Days</option>
             <option value="1mo">1 Month</option>
