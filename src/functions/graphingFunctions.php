@@ -1,4 +1,5 @@
 <?PHP
+require("functions/simple_html_dom.php");
 
 function displayGraph($stockName = "", $dates, $prices, $prevClose)
 {

@@ -1,5 +1,6 @@
 <?PHP
 
+require("functions/simple_html_dom.php");
 
 function indexPrice($indexName, $indexPrice_url)
 {
@@ -103,48 +104,48 @@ function displayNews()
   }
 
 ?>
-  <!-- <div style="text-align: center;"> -->
+  <div style="column-count: 2;">
 
 
-  <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[0]; ?> target="_blank">
+    <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[0]; ?> target="_blank">
 
-    <?PHP echo $mainStoryTitle->plaintext . "<br>"; ?>
+      <?PHP echo $mainStoryTitle->plaintext . "<br>"; ?>
 
-    <div style="font-size: 10px;"> <?PHP echo $mainStoryDescription . $mainStorySource; ?> </div>
-    <img src="<?PHP echo $mainStoryPicture->src; ?>" height="313px" width="561px">
-    <?PHP echo "<br>"."<br>"."<br>"."More News"."<br>"; ?>
-
-    </html>
-    <!-- </div> -->
-    <?PHP
-    //This gets all article titles and pictures
-    //echo "<br>";
-    for ($i = 0; $i < 3; $i++) {
-      $subStoryTitle = $html->find('h3[class=Fz(14px)--md1100 Lh(16px)--md1100 Fw(700) Fz(16px) Lh(18px) LineClamp(3,54px) Va(m) Tov(e)]', $i);
-      $subStoryPicture = $html->find('img[class=W(33%) D(ib) Mend(16px) Mend(12px)--md1100 Fl(start) Bdrs(2px) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter)]', $i);
-      $subStorySource = $html->find('p[class=Fz(11px) C($tertiaryColor) Mt(3px)]', $i);
+      <div style="font-size: 10px;"> <?PHP echo $mainStoryDescription . $mainStorySource; ?> </div>
+      <img src="<?PHP echo $mainStoryPicture->src; ?>" height="313px" width="561px">
 
 
-    ?>
-      <html>
-      <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[$i + 1]; ?> target="_blank">
-
-        <?PHP echo "<br>" . $subStoryTitle->plaintext . $subStorySource; ?>
-        <!-- <img src="<?PHP echo $subStoryPicture->src; ?>" height="88px" width="88px"> -->
-        <!-- <img src="<?PHP echo $subStoryPicture->src; ?>"> -->
-
-
-
-
+      </html>
 
       <?PHP
+      //This gets all article titles and pictures
+      //echo "<br>";
+      for ($i = 0; $i < 3; $i++) {
+        $subStoryTitle = $html->find('h3[class=Fz(14px)--md1100 Lh(16px)--md1100 Fw(700) Fz(16px) Lh(18px) LineClamp(3,54px) Va(m) Tov(e)]', $i);
+        $subStoryPicture = $html->find('img[class=W(33%) D(ib) Mend(16px) Mend(12px)--md1100 Fl(start) Bdrs(2px) Trs($ntkLeadImgFilterTrans) dustyImage:h_Op(0.9) dustyImage:h_Fill(ntkImgFilterHover) Fill(ntkLeadImgFilter)]', $i);
+        $subStorySource = $html->find('p[class=Fz(11px) C($tertiaryColor) Mt(3px)]', $i);
 
-    }
+
       ?>
+        <html>
+        <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[$i + 1]; ?> target="_blank">
 
-    <?PHP
+          <?PHP echo "<br>" . $subStoryTitle->plaintext; ?>
+          <div style="font-size: 10px;"> <?PHP echo $subStorySource; ?> </div>
 
-    //echo $link2;  This prints article title, picture, with hyperlink. prob wont use this
 
-  }
-    ?>
+
+
+
+
+        <?PHP
+
+      }
+        ?>
+  </div>
+<?PHP
+
+  //echo $link2;  This prints article title, picture, with hyperlink. prob wont use this
+
+}
+?>

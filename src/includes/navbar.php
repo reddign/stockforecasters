@@ -2,7 +2,7 @@
 <nav class="w3-sidebar w3-cyan w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
   <div class="w3-container">
-    <a href="<?php echo $path; ?>index.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><img width="225px" src="<?php echo $path; ?>images/stockslogo.png"> </a>
+    <a href="<?php echo $path; ?>index.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-cyan"><img width="225px" src="<?php echo $path; ?>images/stockslogo.png"> </a>
     <h3 class="w3-padding-34"><b>Menu</b></h3>
   </div>
   <div class="w3-bar-block">
