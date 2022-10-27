@@ -5,7 +5,7 @@ display_small_page_heading("Login","");
 ?>
 
 <html>
-    <h4> Login to your account <br> <br>
+    <h5> Login to your account <br> <br>
     <form> 
         <label for="username">Username: </label>
         <input style="width:250px; border-width:3px border-style=solid; border-color:black;" type="text" id="username" name="username"> <br> <br>
@@ -18,7 +18,7 @@ display_small_page_heading("Login","");
 
     
 
-    </h4>
+</h5>
 
 
 </html>
