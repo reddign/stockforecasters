@@ -22,29 +22,23 @@
 <?PHP
 $ticker_array = array();
 foreach (range('a', 'z') as $letter) {
-    $urlStocks = "https://query1.finance.yahoo.com/v1/finance/lookup?formatted=true&lang=en-US&region=US&query='.$letter.'*&type=equity&count=3000&start=0";
-
-    $stocksdata = json_decode(file_get_contents($urlStocks), true);
+    $stocksurl = "https://query1.finance.yahoo.com/v1/finance/lookup?formatted=true&lang=en-US&region=US&query=$letter*&type=equity&count=3000&start=0";
+    $data = json_decode(file_get_contents($stocksurl), true);
     foreach ($data['finance']['result'][0]['documents'] as $ticker) {
-        $ticker_array[] = $ticker['symbol'];
-        echo $i . $ticker['shortName']." - ".$ticker['symbol']."<br>";
+        echo $ticker['shortName']." - ".$ticker['symbol']."<br>";
+
     }
-
-
-
 }
 
+
+echo "ETFS start here!<br>";
 foreach (range('a', 'z') as $letter) {
-    $urlETFS = "https://query1.finance.yahoo.com/v1/finance/lookup?formatted=true&lang=en-US&region=US&query='.$letter.'&type=etf&count=3000&start=0";
-
-    $etfsdata = json_decode(file_get_contents($urlETFS), true);
+    $etfsurl = "https://query1.finance.yahoo.com/v1/finance/lookup?formatted=true&lang=en-US&region=US&query=$letter*&type=etf&count=3000&start=0";
+    $data = json_decode(file_get_contents($etfsurl), true);
     foreach ($data['finance']['result'][0]['documents'] as $ticker) {
-        $ticker_array[] = $ticker['symbol'];
-        echo $i . $ticker['shortName']." - ".$ticker['symbol']."<br>";
+        echo $ticker['shortName']." - ".$ticker['symbol']."<br>";
+
     }
-
-
-
 }
 
 
