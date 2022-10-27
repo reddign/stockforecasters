@@ -1,6 +1,5 @@
 <?PHP
 
-require("functions/simple_html_dom.php");
 
 function indexPrice($indexName, $indexPrice_url)
 {

@@ -2,11 +2,7 @@
 function connect_to_db()
 {
     //Need to figure out how to hide this in config.php
-    $databasehost = "156.67.74.51";
-    $database = "u413142534_stocks";
-    $databaseuser = "u413142534_forecaster";
-    $databasepassword = "BullzNB3ars";
-
+    global $database,$databasehost,$databaseuser,$databasepassword;
     $dsn = "mysql:host=$databasehost;dbname=$database;charset=UTF8";
 
     try {

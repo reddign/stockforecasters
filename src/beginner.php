@@ -1,8 +1,10 @@
 <?PHP
+require("../config.php");
 require("functions/basic_html_functions.php");
 require("includes/header.php");
 require("functions/simple_html_dom.php");
 require("functions/databaseFunctions.php");
+
 
 display_small_page_heading("Beginner", "");
 
