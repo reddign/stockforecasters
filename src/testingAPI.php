@@ -20,27 +20,32 @@
 
         ?> -->
 <?PHP
+$myfile = fopen("testfile.txt", "w");
+
+echo "start";
 $ticker_array = array();
 foreach (range('a', 'z') as $letter) {
     $stocksurl = "https://query1.finance.yahoo.com/v1/finance/lookup?formatted=true&lang=en-US&region=US&query=$letter*&type=equity&count=3000&start=0";
     $data = json_decode(file_get_contents($stocksurl), true);
     foreach ($data['finance']['result'][0]['documents'] as $ticker) {
-        echo $ticker['shortName']." - ".$ticker['symbol']."<br>";
+        fwrite($myfile, $ticker['shortName'].",".$ticker['symbol'].",,,,,,,,"."<br>");
 
     }
 }
 
-
-echo "ETFS start here!<br>";
 foreach (range('a', 'z') as $letter) {
     $etfsurl = "https://query1.finance.yahoo.com/v1/finance/lookup?formatted=true&lang=en-US&region=US&query=$letter*&type=etf&count=3000&start=0";
     $data = json_decode(file_get_contents($etfsurl), true);
     foreach ($data['finance']['result'][0]['documents'] as $ticker) {
-        echo $ticker['shortName']." - ".$ticker['symbol']."<br>";
+        fwrite($myfile, $ticker['shortName'].",".$ticker['symbol'].",,,,,,,,"."<br>");
 
     }
 }
+fclose($myfile);
+echo "end"
 
 
 
 ?>
+
+
