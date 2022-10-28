@@ -28,7 +28,7 @@ display_small_page_heading("EC Stock Forecasters");
 </h3>
 
 <h1> News </h1>
-<?PHP displayNews();?>
+<?PHP displayMarketNews();?>
 
 </html>
 

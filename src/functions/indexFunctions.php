@@ -76,7 +76,7 @@ function displayTime()
 <?PHP
 }
 
-function displayNews()
+function displayMarketNews()
 {
   $html = file_get_html('https://finance.yahoo.com');
 
@@ -146,6 +146,12 @@ function displayNews()
 <?PHP
 
   //echo $link2;  This prints article title, picture, with hyperlink. prob wont use this
+}
+
+function displayStockNews($stockName)
+{
+
+
 
 }
 ?>

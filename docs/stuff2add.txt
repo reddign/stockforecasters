@@ -18,10 +18,10 @@ advanced
 
 
 other
-- add to about page
+- add to about page DONE
 - login stuff using CIA code from stuff
 
 research to do
 - prediction methods
-- API for stock info, news, and stock ticker
+- API for stock info, news, and stock ticker DONE
 - web scraper documentation https://simplehtmldom.sourceforge.io/docs/1.9/manual/finding-html-elements/

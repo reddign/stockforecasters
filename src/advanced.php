@@ -2,6 +2,7 @@
 require("functions/basic_html_functions.php");
 require("includes/header.php");
 require("functions/graphingFunctions.php");
+
 display_small_page_heading("Advanced", "");
 date_default_timezone_set('America/New_York');
 ?>
@@ -16,7 +17,7 @@ date_default_timezone_set('America/New_York');
         <input type="submit" name="Search" id="Search" value="Search" />
         <label for="timeframe">Time frame:</label>
         <select name="timeframe" id="timeframe">
-            <option value="1d"selected hidden>1 Day</option>
+            <option value="1d" selected hidden>1 Day</option>
             <option value="5d">5 Days</option>
             <option value="1mo">1 Month</option>
             <option value="3mo">3 Months</option>
@@ -80,6 +81,15 @@ if (isset($_GET['Search'])) {
             <?PHP displayStockData($stockName); ?>
         </div>
 
+        <h2>
+            <?PHP
+            echo $stockName . " News";
+            displayStockNews($stockName);
+            ?>
+        </h2>
+
+
+
     <?PHP
 
     } else {
@@ -111,6 +121,13 @@ if (isset($_GET['Search'])) {
         <div style="column-count: 4; font-size:13px;">
             <?PHP displayStockData($stockName); ?>
             <?PHP displayStockData($stockName1); ?>
+        </div>
+
+        <div style="column-count: 2; font-size:13px;">
+            <h2> <?PHP echo $stockName . " News"; displayStockNews($stockName);?> </h2>
+            <h2> <?PHP echo $stockName1 . " News"; displayStockNews($stockName1);?> </h2>
+
+            
         </div>
     <?PHP
 
