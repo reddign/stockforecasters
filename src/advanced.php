@@ -83,12 +83,10 @@ if (isset($_GET['Search'])) {
             <?PHP displayStockData($stockName); ?>
         </div>
 
-        <h2>
-            <?PHP
-            echo $stockName . " News";
-            displayStockNews($stockName);
-            ?>
-        </h2>
+        <?PHP
+        echo $stockName . " News" . "<br>";
+        displayStockNews($stockName);
+        ?>
 
 
 
