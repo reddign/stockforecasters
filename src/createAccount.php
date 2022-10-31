@@ -10,7 +10,7 @@ display_small_page_heading("Create Account", "");
         <label for="username">Username: </label>
         <input style="width:250px; border-width:3px border-style=solid; border-color:black;" type="text" id="username" name="username"> <br> <br>
         <label for="lname">Password: </label>
-        <input style="width:250px; border-width:3px border-style=solid; border-color:black;" type="password" id="password" name="password"> <br> <br>
+        <input style="width:250px; border-width:3px border-style=solid; border-color:black; margin: 5px;" type="password" id="password" name="password"> <br> <br>
     </form>
 
     <label for="level">Investor Level: </label>
