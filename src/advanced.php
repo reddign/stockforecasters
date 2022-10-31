@@ -2,6 +2,8 @@
 require("functions/basic_html_functions.php");
 require("includes/header.php");
 require("functions/graphingFunctions.php");
+require("functions/stockNews.php");
+
 
 display_small_page_heading("Advanced", "");
 date_default_timezone_set('America/New_York');
@@ -81,12 +83,10 @@ if (isset($_GET['Search'])) {
             <?PHP displayStockData($stockName); ?>
         </div>
 
-        <h2>
-            <?PHP
-            echo $stockName . " News";
-            displayStockNews($stockName);
-            ?>
-        </h2>
+        <?PHP
+        echo $stockName . " News" . "<br>";
+        displayStockNews($stockName);
+        ?>
 
 
 
@@ -123,12 +123,14 @@ if (isset($_GET['Search'])) {
             <?PHP displayStockData($stockName1); ?>
         </div>
 
-        <div style="column-count: 2; font-size:13px;">
-            <h2> <?PHP echo $stockName . " News"; displayStockNews($stockName);?> </h2>
-            <h2> <?PHP echo $stockName1 . " News"; displayStockNews($stockName1);?> </h2>
+        <?PHP
+        echo $stockName . " News" . "<br>";
+        displayStockNews($stockName);
+        echo $stockName1 . " News" . "<br>";
+        displayStockNews($stockName1);
+        ?>
 
-            
-        </div>
+
     <?PHP
 
     }

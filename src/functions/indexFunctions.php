@@ -148,10 +148,5 @@ function displayMarketNews()
   //echo $link2;  This prints article title, picture, with hyperlink. prob wont use this
 }
 
-function displayStockNews($stockName)
-{
 
-
-
-}
 ?>
