@@ -84,7 +84,6 @@ if (isset($_GET['Search'])) {
         </div>
 
         <?PHP
-        echo $stockName . " News" . "<br>";
         displayStockNews($stockName);
         ?>
 
@@ -124,9 +123,7 @@ if (isset($_GET['Search'])) {
         </div>
 
         <?PHP
-        echo $stockName . " News" . "<br>";
         displayStockNews($stockName);
-        echo $stockName1 . " News" . "<br>";
         displayStockNews($stockName1);
         ?>
 
