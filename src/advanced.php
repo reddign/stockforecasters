@@ -123,6 +123,7 @@ if (isset($_GET['Search'])) {
         </div>
 
         <?PHP
+        echo "<br>";
         displayStockNews($stockName);
         displayStockNews($stockName1);
         ?>
