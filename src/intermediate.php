@@ -1,4 +1,4 @@
-<?PHP
+<?PHP   
 require("functions/basic_html_functions.php");
 require("includes/header.php");
 require("functions/graphingFunctions.php");
@@ -12,7 +12,7 @@ date_default_timezone_set('America/New_York');
     <form method="get">
         <label for="Intstock">Stock Symbol: </label>
         <input style="width:115px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock" name="Intstock" placeholder="Stock Name">
-        <input style="width:310px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock1" name="Intstock1" placeholder="Optional: Stock Name or Indicator">
+        <input style="width:310px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock1" name="Intstock1" placeholder="Optional: Stock Name, Indicator, Trendline, Predict">
         <label for="timeframe">Time frame:</label>
         <select name="timeframe" id="timeframe">
             <!-- <option value="none" selected disabled hidden>n/a</option> -->
@@ -64,12 +64,22 @@ if (isset($_GET['Search'])) {
         $prevClose = $url[3]['chart']['result'][0]['indicators']['quote'][0]['close'][0];
     }
 
+    // switch($_GET['Intstock1']){
+    //     case 1:
+    //         if(("Trendline").equals(trtoupper($_GET['Intstock1'])) ){
+    //             displayGraph($stockName, $dates, $prices, $prevClose);
+    //         }
+    //     break;
 
+
+        
+    // }
     if(empty($_GET['Intstock1'])) {
         //this means there is only one stock
         displayGraph($stockName, $dates, $prices, $prevClose);
         
-    } else {
+    }
+    elseif() else {
         //need to get data for second stock
         $stockName1 = strtoupper($_GET['Intstock1']);
         //this returns the array "url" which has a bunch of information that is used in later function calls
