@@ -79,8 +79,8 @@ if (isset($_GET['Search'])) {
         
         
     }
-    elseif(("Trendline").equals(($_GET['Intstock1']))){
-        
+    elseif(strcmp(strtoupper($_GET['Intstock1']),"TRENDLINE")==0){
+        //If user wants a trendline, trendline code goes here
     }
     else {
         //need to get data for second stock
