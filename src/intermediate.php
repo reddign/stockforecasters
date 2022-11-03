@@ -79,7 +79,7 @@ if (isset($_GET['Search'])) {
         displayGraph($stockName, $dates, $prices, $prevClose);
         
     }
-    elseif() else {
+    else {
         //need to get data for second stock
         $stockName1 = strtoupper($_GET['Intstock1']);
         //this returns the array "url" which has a bunch of information that is used in later function calls
