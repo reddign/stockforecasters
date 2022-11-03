@@ -76,7 +76,10 @@ if (isset($_GET['Search'])) {
     // }
     if(empty($_GET['Intstock1'])) {
         //this means there is only one stock
-        displayGraph($stockName, $dates, $prices, $prevClose);
+        
+        
+    }
+    elseif(("Trendline").equals(($_GET['Intstock1']))){
         
     }
     else {
