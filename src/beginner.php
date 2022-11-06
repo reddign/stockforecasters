@@ -1,5 +1,5 @@
 <?PHP
-require("../config.php");
+require("../../config.php");
 require("functions/basic_html_functions.php");
 require("includes/header.php");
 require("functions/simple_html_dom.php");
