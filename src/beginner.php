@@ -1,5 +1,6 @@
 <?PHP
-require("../../stocks_config.php");
+require("../../config.php");
+// require("../../stocks_config.php");
 
 require("functions/basic_html_functions.php");
 require("includes/header.php");
