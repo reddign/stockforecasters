@@ -11,10 +11,10 @@ if(isset($_POST["submit"])){
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
 
-    if(emptyInputSignup($name, $email, $username, $password, $passwordRepeat) !== false){
-        header("location: ../createAccount.php?error=emptyinput");
+     if(emptyInputSignup($name, $email, $username, $password, $passwordRepeat) !== false){
+         header("location: ../createAccount.php?error=emptyinput");
         exit();
-    }
+     }
     if(invalidUid($username) !== false){
         header("location: ../createAccount.php?error=invalidUid");
         exit();
@@ -27,7 +27,7 @@ if(isset($_POST["submit"])){
         header("location: ../createAccount.php?error=pwdDontMatch");
         exit();
     }
-    if(uidExists($conn, $usernamne) !== false){
+    if(uidExists($conn, $username, $email) !== false){
         header("location: ../createAccount.php?error=usernameTaken");
         exit();
     }
