@@ -2,7 +2,9 @@
 
 <?php
 
-$url = 'https://query1.finance.yahoo.com/v8/finance/chart/aapl?period1=345479400&period2=1666970299&interval=1d';
+//$url = 'https://query1.finance.yahoo.com/v8/finance/chart/aapl?period1=345479400&period2=1666970299&interval=1d';
+$url = 'https://query1.finance.yahoo.com/v8/finance/chart/aapl?period1=1636402976&period2=1666970299&interval=1d';
+
 $json = json_decode(file_get_contents($url), true);
 $numcloses = count($json['chart']['result'][0]['indicators']['quote'][0]['close']);
 
@@ -24,7 +26,7 @@ $total = 0;
 for($j=0;$j<count($allClosePrices)-50;$j++){
 
     for($h=0;$h<50;$h++) {
-        $total = $total + $allClosePrices[$i];
+        $total = $total + $allClosePrices[$j];
     }
     $total = $total/50;
     $SMA[$j+49] = $total;
