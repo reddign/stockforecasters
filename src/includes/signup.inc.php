@@ -9,7 +9,7 @@ if(isset($_POST["submit"])){
     $passwordRepeat = $_POST["passwordRepeat"];
 
     require_once('dbh.inc.php');
-    require_once('function.inc.php');
+    require_once('functions.inc.php');
 
      if(emptyInputSignup($name, $email, $username, $password, $passwordRepeat) !== false){
          header("location: ../createAccount.php?error=emptyinput");
