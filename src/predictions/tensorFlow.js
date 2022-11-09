@@ -106,7 +106,7 @@ function DisplaySMA(){
 
   let graph_plot = document.getElementById('div_linegraph_sma');
   Plotly.newPlot( graph_plot, [{ x: timestamps_a, y: prices, name: "Stock Price" }], { margin: { t: 0 } } );
-  Plotly.plot( graph_plot, [{ x: timestamps_b, y: sma, name: "SMA" }], { margin: { t: 0 } } );
+  Plotly.plot( graph_plot, [{ x: time stamps_b, y: sma, name: "SMA" }], { margin: { t: 0 } } );
 
   $("#div_linegraph_sma_title").text("Stock Price and Simple Moving Average (window: " + window_size + ")" );
   $("#btn_draw_sma").show();
