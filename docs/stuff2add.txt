@@ -13,7 +13,7 @@ intermediate
 
 advanced
 - predictions https://towardsdatascience.com/time-series-forecasting-with-tensorflow-js-1efd48ff2201    https://github.com/jinglescode/time-series-forecasting-tensorflowjs https://neptune.ai/blog/predicting-stock-prices-using-machine-learning
-- trend lines (sma, bollinger bands, macd, rsi)
+- trend lines (sma, bollinger bands, macd, rsi) (DONE)
 - multiple stocks on one graph DONE
 
 

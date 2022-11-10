@@ -95,8 +95,8 @@ function displayGraphwSMA($stockName = "", $dates, $prices, $prevClose)
             },
             {
                 label: "50 Day SMA",
-                backgroundColor: 'rgb(0, 0, 212)',
-                borderColor: 'rgb(0, 0, 212)',
+                backgroundColor: 'rgb(160, 32, 240)',
+                borderColor: 'rgb(160, 32, 240)',
                 data: <?php echo json_encode($SMA); ?>,
             }]
         };
