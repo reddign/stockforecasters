@@ -32,7 +32,7 @@ date_default_timezone_set('America/New_York');
         </select>
         <input type="submit" name="Search" id="Search" value="Search" />
     </form>
-
+                                                                                
     <details>
         <summary>Read me!</summary>
         <div style="font-style: italic; font-size: 13px">
@@ -76,7 +76,8 @@ if (isset($_GET['Search'])) {
 
     if (empty($_GET['Intstock1'])) {
         //this means there is only one stock
-        displayGraph($stockName, $dates, $prices, $prevClose);
+        // displayGraph($stockName, $dates, $prices, $prevClose);
+        displayGraphwSMA($stockName, $dates, $prices, $prevClose);
 ?>
 
         <div style="column-count: 2;">

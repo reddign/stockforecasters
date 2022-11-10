@@ -22,15 +22,12 @@ $SMAtemp = array();
 $total = 0;
 
 for($j=0;$j<count($allClosePrices)-50;$j++){
-
     for($h=0;$h<50;$h++) {
         $total = $total + $allClosePrices[$h+$j];
     }
     $total = $total/50;
     $SMAtemp[$j] = $total;
     $total = 0;
-    
-
 }
 
 $k = 0;
@@ -53,7 +50,6 @@ for($p=0;$p<$days;$p++) {
     $dates2graph[$p] = $allDates[$p+($numcloses-$days)];
     $sma2graph[$p] = $SMA[$p+($numcloses-$days)];
     $prices2graph[$p] = $allClosePrices[$p+($numcloses-$days)];
-
 }
 
 
