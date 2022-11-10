@@ -18,8 +18,7 @@ display_small_page_heading("Beginner", "");
 
 <p>
 <form method="get">
-  <label for="companylookup">Company Name: </label>
-  <input style="width:140px; border-width:3px border-style=solid; border-color:black;" type="text" id="companyName" name="companyName" placeholder="Type Here">
+  <input style="width:350px; border-width:3px border-style=solid; border-color:black;" type="text" id="companyName" name="companyName" placeholder="Type Company Name Here">
   <input type="submit" name="Search" id="Search" value="Search" />
 </form>
 
