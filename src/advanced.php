@@ -16,7 +16,6 @@ date_default_timezone_set('America/New_York');
         <label for="Intstock">Stock Symbol: </label>
         <input style="width:115px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock" name="Intstock" placeholder="Stock Name">
         <input style="width:430px; border-width:3px border-style=solid; border-color:black;" type="text" id="Intstock1" name="Intstock1" placeholder="Optional: Second Stock Name or Prediction Line">
-        <label for="timeframe">Time frame:</label>
         <select name="timeframe" id="timeframe">
             <option value="1d" selected hidden>1 Day</option>
             <option value="5d">5 Days</option>
