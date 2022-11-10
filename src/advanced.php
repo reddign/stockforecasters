@@ -119,7 +119,12 @@ if (isset($_GET['Search'])) {
         }
         //displayGraph($stockName, $dates, $prices, $prevClose);
         //displayGraph($stockName1, $dates1, $prices1, $prevClose1);
-        displayGraphmultiple($stockName, $dates, $prices, $prevClose, $stockName1, $dates1, $prices1, $prevClose1);
+
+        if (strcmp($_GET['timeframe'],"1d")==0 || strcmp($_GET['timeframe'],"5d")==0 || strcmp($_GET['timeframe'],"1mo")==0 || strcmp($_GET['timeframe'],"3mo")==0){
+            displayGraphmultiple($stockName, $dates, $prices, $prevClose, $stockName1, $dates1, $prices1, $prevClose1);
+        } else {
+            displayGraphmultiplewSMA($stockName, $dates, $prices, $prevClose, $stockName1, $dates1, $prices1, $prevClose1);
+        }
 
     ?>
 
