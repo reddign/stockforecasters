@@ -13,12 +13,7 @@ display_small_page_heading("Login","");
     </form>
     <br> <br>
 
-
-
-
     <a href="createAccount.php"> <button type="button"> Don't have an account yet? Create one here! </button> </a>
-
-    
 
 </h5>
 
