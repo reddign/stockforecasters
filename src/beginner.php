@@ -124,7 +124,7 @@ if (isset($_GET['Search'])) {
   </p>
 </details>
 <br>
-<h2>Popular EFTs</h2>
+<h2>Popular ETFs</h2>
 
 <details>
   <summary>Here is a list of some popular ETFs. If your just getting started to invest it would be worth it to check ETFs from the companies listed below. Once again these are not the only compaies who have popular ETFs.</summary>
