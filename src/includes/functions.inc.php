@@ -98,7 +98,7 @@ function loginUser($conn, $username, $password){
     $uidExists = uidExists($conn, $username, $username);
     
     if($uidExists === false){
-        header("location ../login.php?error= loginError");
+        header("location ../login.php?error=loginError"); //there was no else if condition for this, i added one on the login.php page
         exit();
     }
 

@@ -25,6 +25,10 @@ display_small_page_heading("Login","");
         else if($_GET["error"] == "IncorrectPassword"){
             echo "<p> Incorrect Password!<p>";
         }
+        //i added this
+        else if($_GET["error"] == "loginError"){
+            echo "<p> Login Error!<p>";
+        }
     }
 
 ?>
