@@ -1,0 +1,5 @@
+all the session variables
+
+$_SESSION["usersUid"] this is the username of the logged in user
+$_SESSION["userid"] this is the user ID number of the logged in user
+$_SESSION["loggedIn"] = 1; this is a log in status variable 0 means not logged in 1 means logged in

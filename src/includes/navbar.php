@@ -11,7 +11,6 @@ session_start();
     <h3 class="w3-padding-34"><b>Menu</b></h3>
   </div>
   <div class="w3-bar-block">
-    <a href="<?php echo $path; ?>index.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
 
     <!-- Checking to see if user is logged in -->
     <!-- Commented out until it is working -->
@@ -19,6 +18,7 @@ session_start();
 
     if ($_SESSION["loggedIn"] == 1) {
       ?>
+      <a href="<?php echo $path; ?>index.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
       <a href='<?php echo $path; ?>profile.php' onclick='w3_close()' class='w3-bar-item w3-button w3-hover-white'>Profile</a>
       <a href="<?php echo $path; ?>beginner.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beginner</a>
       <a href="<?php echo $path; ?>intermediate.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Intermediate</a>
@@ -29,6 +29,7 @@ session_start();
       <?PHP
     } else {
     ?>
+      <a href="<?php echo $path; ?>index.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
       <a href='<?php echo $path; ?>login.php' onclick='w3_close()' class='w3-bar-item w3-button w3-hover-white'>Login</a>
       <a href="<?php echo $path; ?>beginner.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beginner</a>
       <a href="<?php echo $path; ?>intermediate.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Intermediate</a>

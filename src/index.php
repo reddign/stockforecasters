@@ -19,7 +19,14 @@ display_small_page_heading("EC Stock Forecasters");
   <b>
     <?PHP displayTime(); ?>
   </b>
-  <br><br> Welcome to the main page of the EC Stock Forecasters <br> <br>
+  <br><br>
+  <?PHP
+  if ($_SESSION["loggedIn"] == 1)
+    echo "Welcome back, " . $_SESSION["usersUid"];
+  else
+    echo "Welcome to the main page of the EC Stock Forecasters";
+  ?>
+  <br><br>
 </h4>
 
 <h3 style="text-align:center">
@@ -30,8 +37,7 @@ display_small_page_heading("EC Stock Forecasters");
   echo "<br>";
   indexPrice('S&P 500', 'https://query1.finance.yahoo.com/v8/finance/chart/^GSPC?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=1d');
   indexPrice('Russell 2000', 'https://query1.finance.yahoo.com/v8/finance/chart/^RUT?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=1d');
-  if ($_SESSION["loggedIn"] == 0) echo "out";
-  if ($_SESSION["loggedIn"] == 1) echo "in";
+
   ?>
 
 </h3>
