@@ -1,5 +1,5 @@
 ﻿<?php
-  session_start();
+session_start();
 ?>
 
 
@@ -13,24 +13,32 @@
   <div class="w3-bar-block">
     <a href="<?php echo $path; ?>index.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
 
-<!-- Checking to see if user is logged in -->
-<!-- Commented out until it is working -->
-    <!-- <?php
-      if (isset($_SESSION['userUid'])){
-        echo  "<a href='profile.php'> Profile Page</a>";
-        echo  "<a href='logout.php'> Log out</a>";
-      }
-      else{
-        echo  "<a href= '<?php echo $path; ?>login.php' onclick='w3_close()' class='w3-bar-item w3-button w3-hover-white'>Login</a>";
-      }
-    ?> -->
-    <a href= '<?php echo $path; ?>login.php' onclick='w3_close()' class='w3-bar-item w3-button w3-hover-white'>Login</a>
-    <a href="<?php echo $path; ?>beginner.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beginner</a>
-    <a href="<?php echo $path; ?>intermediate.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Intermediate</a>
-    <a href="<?php echo $path; ?>advanced.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Advanced</a>
-    <a href="<?php echo $path; ?>about.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a>
-    <a href="<?php echo $path; ?>help.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Help</a>
+    <!-- Checking to see if user is logged in -->
+    <!-- Commented out until it is working -->
+    <?php
 
+    if ($_SESSION["loggedIn"] == 1) {
+      ?>
+      <a href='<?php echo $path; ?>profile.php' onclick='w3_close()' class='w3-bar-item w3-button w3-hover-white'>Profile</a>
+      <a href="<?php echo $path; ?>beginner.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beginner</a>
+      <a href="<?php echo $path; ?>intermediate.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Intermediate</a>
+      <a href="<?php echo $path; ?>advanced.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Advanced</a>
+      <a href="<?php echo $path; ?>about.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a>
+      <a href="<?php echo $path; ?>help.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Help</a>
+      <a href='<?php echo $path; ?>logout.php' onclick='w3_close()' class='w3-bar-item w3-button w3-hover-white'>Logout</a>
+      <?PHP
+    } else {
+    ?>
+      <a href='<?php echo $path; ?>login.php' onclick='w3_close()' class='w3-bar-item w3-button w3-hover-white'>Login</a>
+      <a href="<?php echo $path; ?>beginner.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Beginner</a>
+      <a href="<?php echo $path; ?>intermediate.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Intermediate</a>
+      <a href="<?php echo $path; ?>advanced.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Advanced</a>
+      <a href="<?php echo $path; ?>about.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a>
+      <a href="<?php echo $path; ?>help.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Help</a>
+
+    <?PHP
+    }
+    ?>
 
   </div>
 

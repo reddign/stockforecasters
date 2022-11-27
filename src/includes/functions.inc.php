@@ -74,11 +74,23 @@ function  createUser($conn, $name, $email, $username, $password){
         exit();
     }
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-
-
     mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+
+
+    //I added this code, this creates a database with columns "stockTicker". The database is name the same as the user name - Joe
+    $sql_wlist = "CREATE TABLE $username (stockTicker varchar(10));";
+    $stmt_wlist = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt_wlist, $sql_wlist)){
+        header("location: ../createAccount.php?error=stmtFailed");
+        exit();
+    }
+    //mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPwd);
+    mysqli_stmt_execute($stmt_wlist);
+    mysqli_stmt_close($stmt_wlist);
+
+
     header("location: ../createAccount.php?error=none");
     exit();
 }
@@ -113,6 +125,7 @@ function loginUser($conn, $username, $password){
         session_start();
         $_SESSION["userid"] = $uidExists['usersId'];
         $_SESSION["usersUid"] = $uidExists['usersUid'];
+        $_SESSION["loggedIn"] = 1; //0 means not logged in 1 means logged in
         header("location: ../index.php");
         exit();
     }

@@ -1,4 +1,11 @@
 <?PHP
+//starting a session once the main page loads
+session_start();
+if ($_SESSION["loggedIn"] == 1)
+  $_SESSION["loggedIn"] = 1;
+else
+  $_SESSION["loggedIn"] = 0;
+
 $path = '';
 require("functions/indexFunctions.php");
 require("functions/basic_html_functions.php");
@@ -23,12 +30,14 @@ display_small_page_heading("EC Stock Forecasters");
   echo "<br>";
   indexPrice('S&P 500', 'https://query1.finance.yahoo.com/v8/finance/chart/^GSPC?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=1d');
   indexPrice('Russell 2000', 'https://query1.finance.yahoo.com/v8/finance/chart/^RUT?region=US&lang=en-US&includePrePost=false&interval=1h&useYfid=true&range=1d');
+  if ($_SESSION["loggedIn"] == 0) echo "out";
+  if ($_SESSION["loggedIn"] == 1) echo "in";
   ?>
 
 </h3>
 
 <h1> News </h1>
-<?PHP displayMarketNews();?>
+<?PHP displayMarketNews(); ?>
 
 </html>
 
