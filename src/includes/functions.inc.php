@@ -86,7 +86,6 @@ function  createUser($conn, $name, $email, $username, $password){
         header("location: ../createAccount.php?error=stmtFailed");
         exit();
     }
-    //mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPwd);
     mysqli_stmt_execute($stmt_wlist);
     mysqli_stmt_close($stmt_wlist);
 
