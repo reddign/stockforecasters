@@ -6,9 +6,16 @@ require("functions/basic_html_functions.php");
 require("includes/header.php");
 require("functions/simple_html_dom.php");
 require("functions/databaseFunctions.php");
-display_small_page_heading("Watchlist", "");
+display_small_page_heading("Profile", "");
 
+if($_SESSION["loggedIn"]==0)
+    echo "You must log in to access this page";
+else {
+
+session_start();
 ?>
+
+<h2> <?PHP echo $_SESSION["usersUid"];?></h2>
 
 <h5> Add a stock to your watchlist <br> <br>
   <form method="get">
@@ -26,7 +33,7 @@ display_small_page_heading("Watchlist", "");
     </form>
 
     <?PHP
-    session_start();
+    
     $pdo = connect_to_db();
     $username = $_SESSION["usersUid"];
 
@@ -84,4 +91,5 @@ display_small_page_heading("Watchlist", "");
 
   <?PHP
   require("includes/footer.php");
+  }
   ?>
