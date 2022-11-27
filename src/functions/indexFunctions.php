@@ -105,9 +105,9 @@ function displayMarketNews()
 
 ?>
   <div style="column-count: 2;">
+ 
 
-
-    <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[0]; ?> target="_blank">
+    <a style="text-decoration:line;" ; href=<?PHP echo $allStoryURL[0]; ?> target="_blank">
 
       <?PHP echo $mainStoryTitle->plaintext . "<br>"; ?>
 
@@ -128,7 +128,7 @@ function displayMarketNews()
 
       ?>
         <html>
-        <a style="text-decoration:none;" ; href=<?PHP echo $allStoryURL[$i + 1]; ?> target="_blank">
+        <a style="text-decoration:line;" ; href=<?PHP echo $allStoryURL[$i + 1]; ?> target="_blank">
 
           <?PHP echo "<br>" . $subStoryTitle->plaintext; ?>
           <div style="font-size: 10px;"> <?PHP echo $subStorySource; ?> </div>

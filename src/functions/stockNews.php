@@ -9,7 +9,7 @@ function displayStockNews($stockName)
       $description = $html->find('p[class="Fz(14px) Lh(19px) Fz(13px)--sm1024 Lh(17px)--sm1024 LineClamp(2,38px) LineClamp(2,34px)--sm1024 M(0) D(n)--sm1024 Bxz(bb) Pb(2px)"]', $i);
       $storyLink = 'https://finance.yahoo.com/news'.$storyTitle->href;
       ?>
-      <a style="text-decoration:none;" ; href=<?PHP echo $storyLink; ?> target="_blank">
+      <a style="text-decoration:line;" ; href=<?PHP echo $storyLink; ?> target="_blank">
       <?PHP
       echo " - ".$storyTitle->plaintext . " ". "<br>"."<br>";
   
