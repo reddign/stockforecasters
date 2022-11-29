@@ -8,7 +8,7 @@ require("functions/stockNews.php");
 display_small_page_heading("Advanced", "");
 date_default_timezone_set('America/New_York');
 
-if($_SESSION["loggedIn"]==0)
+if($_SESSION["loggedIn"]!=1)
     echo "You must log in to access this page";
 else {
 

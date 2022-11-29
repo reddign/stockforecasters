@@ -1,6 +1,6 @@
 <?PHP
-require("../config.php");
-//require("../../stocks_config.php");
+//require("../config.php");
+require("../../stocks_config.php");
 
 require("functions/basic_html_functions.php");
 require("includes/header.php");
@@ -8,7 +8,7 @@ require("functions/simple_html_dom.php");
 require("functions/databaseFunctions.php");
 display_small_page_heading("Profile", "");
 
-if($_SESSION["loggedIn"]==0)
+if($_SESSION["loggedIn"]!=1)
     echo "You must log in to access this page";
 else {
 
@@ -64,7 +64,7 @@ session_start();
 
       $data = $pdo->query("SELECT * FROM $username WHERE stockTicker LIKE '$stockToDelete';")->fetchAll();
       if ($data == NULL) {
-        echo "The stock " . $stockToDelete . " is not in your watchlist.";
+        echo "<br>The stock " . $stockToDelete . " is not in your watchlist.";
       }
       else {
         $data = $pdo->prepare("DELETE FROM $username WHERE stockTicker=:stockTicker;");
