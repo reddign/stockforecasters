@@ -1,95 +1,77 @@
-<?PHP
-require("functions/simple_html_dom.php");
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors','On');
 
-function displaySMA($stockName = "", $dates, $prices, $prevClose)
-{
+$anData = array(1,2,3,4,5,6,7,8,9,10);
 
-    displayName($stockName, $dates, $prices, $prevClose);
-?>
-    <html>
+print_r(forecastHoltWinters($anData));
 
-    <div>
-        <canvas id="stockChart" height="100px"></canvas>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const labels = <?php echo json_encode($dates); ?>;
+function forecastHoltWinters($anData, $nForecast = 1, $nSeasonLength = 1, $nAlpha =     0.2, $nBeta = 0.01, $nGamma = 0.01, $nDevGamma = 0.1) {
 
-        const data = {
-            labels: labels,
-            datasets: [{
-                label: "<?php echo $stockName; ?>",
-                backgroundColor: 'rgb(0, 188, 212)',
-                borderColor: 'rgb(0, 188, 212)',
-                data: <?php echo json_encode($prices); ?>,
-            }]
-        };
+// Calculate an initial trend level
+$nTrend1 = 0;
+for($i = 0; $i < $nSeasonLength; $i++) {
+  $nTrend1 += $anData[$i];
+}
+$nTrend1 /= $nSeasonLength;
 
-        const config = {
-            type: 'line',
-            data: data,
-            options: {
-                plugins: {
-                    legend: {
-                        display: true
-                    }
-                },
-                elements: {
-                    point: {
-                        radius: 0
-                    }
-                },
+$nTrend2 = 0;
+for($i = $nSeasonLength; $i < 2*$nSeasonLength; $i++) {
+  $nTrend2 += $anData[$i];
+}
+$nTrend2 /= $nSeasonLength;
 
-                hover: {
-                    mode: 'index',
-                    intersect: false
-                },
-                scales: {
-                    x: {
-                        ticks: {
-                            display: false
-                        },
-                        grid: {
-                            display: false
-                        }
-                    }
-                }
+$nInitialTrend = ($nTrend2 - $nTrend1) / $nSeasonLength;
 
-            }
-        };
-        const myChart = new Chart(
-            document.getElementById('stockChart'),
-            config
-        );
-    </script>
+// Take the first value as the initial level
+$nInitialLevel = $anData[0];
 
-    </html>
-
-<?PHP
-
+// Build index
+$anIndex = array();
+foreach($anData as $nKey => $nVal) {
+  $anIndex[$nKey] = $nVal / ($nInitialLevel + ($nKey + 1) * $nInitialTrend);
 }
 
-function ComputeSMA($data, $window_size)
-{
-?>
-    <script>
-        data = <?PHP echo $data ?>
-        window_size = <?PHP echo $window_size ?>
-        let r_avgs = [],
-            avg_prev = 0;
-        for (let i = 0; i <= data.length - window_size; i++) {
-            let curr_avg = 0.00,
-                t = i + window_size;
-            for (let k = i; k < t && k <= data.length; k++) {
-                curr_avg += data[k]['price'] / window_size;
-            }
-            r_avgs.push({
-                set: data.slice(i, i + window_size),
-                avg: curr_avg
-            });
-            avg_prev = curr_avg;
-        }
-        return r_avgs;
-    </script>
-<?PHP
+// Build season buffer
+$anSeason = array_fill(0, count($anData), 0);
+for($i = 0; $i < $nSeasonLength; $i++) {
+  $anSeason[$i] = ($anIndex[$i] + $anIndex[$i+$nSeasonLength]) / 2;
 }
+
+// Normalise season
+$nSeasonFactor = $nSeasonLength / array_sum($anSeason);
+foreach($anSeason as $nKey => $nVal) {
+  $anSeason[$nKey] *= $nSeasonFactor;
+}
+
+$anHoltWinters = array();
+$anDeviations = array();
+$nAlphaLevel = $nInitialLevel;
+$nBetaTrend = $nInitialTrend;
+foreach($anData as $nKey => $nVal) {
+  $nTempLevel = $nAlphaLevel;
+  $nTempTrend = $nBetaTrend;
+
+  $nAlphaLevel = $nAlpha * $nVal / $anSeason[$nKey] + (1.0 - $nAlpha) * ($nTempLevel + $nTempTrend);
+  $nBetaTrend = $nBeta * ($nAlphaLevel - $nTempLevel) + ( 1.0 - $nBeta ) * $nTempTrend;
+
+  $anSeason[$nKey + $nSeasonLength] = $nGamma * $nVal / $nAlphaLevel + (1.0 - $nGamma) * $anSeason[$nKey];
+
+  $anHoltWinters[$nKey] = ($nAlphaLevel + $nBetaTrend * ($nKey + 1)) * $anSeason[$nKey];
+  $anDeviations[$nKey] = $nDevGamma * abs($nVal - $anHoltWinters[$nKey]) + (1-$nDevGamma) 
+              * (isset($anDeviations[$nKey - $nSeasonLength]) ? $anDeviations[$nKey - $nSeasonLength] : 0);
+}
+
+$anForecast = array();
+$nLast = end($anData);
+for($i = 1; $i <= $nForecast; $i++) {
+   $nComputed = round($nAlphaLevel + $nBetaTrend * $anSeason[$nKey + $i]);
+   if ($nComputed < 0) { // wildly off due to outliers
+     $nComputed = $nLast;
+   }
+   $anForecast[] = $nComputed;
+}
+
+return $anForecast;
+}
+?>
