@@ -69,7 +69,7 @@ for($i = 1; $i <= $nForecast; $i++) {
    if ($nComputed < 0) { // wildly off due to outliers
      $nComputed = $nLast;
    }
-   $anForecast[] = $nComputed;
+   $anForecast = $nComputed;
 }
 
 return $anForecast;
