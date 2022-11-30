@@ -106,12 +106,23 @@ function displayMarketNews()
 ?>
   <div style="column-count: 2;">
 
+    <style>
+      .bluelink {
+        text-decoration:line;
+      }
+      .bluelink:hover{
+       color:blue; 
+      }
+    </style>
 
-    <a style="text-decoration:line;" ; href=<?PHP echo $allStoryURL[0]; ?> target="_blank">
+
+    <a class=bluelink ; href=<?PHP echo $allStoryURL[0]; ?> target="_blank">
 
       <?PHP echo $mainStoryTitle->plaintext . "<br>"; ?>
+    
 
-      <div style="font-size: 10px;"> <?PHP echo $mainStoryDescription . $mainStorySource; ?> </div>
+      <div class=bluelink ; style="font-size: 10px;"> <?PHP echo $mainStoryDescription . $mainStorySource; ?> </div>
+      </a>
       <img src="<?PHP echo $mainStoryPicture->src; ?>" height="313px" width="561px">
 
 
@@ -128,10 +139,11 @@ function displayMarketNews()
 
       ?>
         <html>
-        <a style="text-decoration:line;" ; href=<?PHP echo $allStoryURL[$i + 1]; ?> target="_blank">
-          <?PHP echo "<br>" . $subStoryTitle->plaintext; ?>
-          <div style="font-size: 10px;"> <?PHP echo $subStorySource; ?> </div>
-        </a>
+        <a class=bluelink ; href=<?PHP echo $allStoryURL[$i + 1]; ?> target="_blank"> 
+          <?PHP echo "<br>" . $subStoryTitle->plaintext; ?> 
+          <div class=bluelink ; style="font-size: 10px;"> <?PHP echo $subStorySource; ?> </div>
+          </a>
+
 
 
 

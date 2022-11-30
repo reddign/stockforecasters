@@ -549,7 +549,7 @@ function displayStockData($stockName)
         $stockDataList = $html->find('td[class="Ta(end) Fw(600) Lh(14px)"]', $i);
         $stockDataListName = $html->find('td[class="C($primaryColor) W(51%)"]', $i);
         echo $stockDataListName . ": " . $stockDataList . "<br>";
-        if ($i == 7) echo "<br>";
+        // if ($i == 7) echo "<br>";
         // if($i==11) $i=13;
     }
     echo "<br>";
@@ -557,20 +557,6 @@ function displayStockData($stockName)
 
 function SMA50DAY($allClosePrices)
 {
-    // $url = 'https://query1.finance.yahoo.com/v8/finance/chart/aapl?period1=345479400&period2=1666970299&interval=1d';
-    // $json = json_decode(file_get_contents($url), true);
-    // $numcloses = count($json['chart']['result'][0]['indicators']['quote'][0]['close']);
-
-    // $i = 0;
-    // $allClosePrices = array();
-    // $allDates = array();
-
-    // //All close prices and dates are indexed
-    // for ($i = 0; $i < $numcloses; $i++) {
-    //     $allClosePrices[$i] = $json['chart']['result'][0]['indicators']['quote'][0]['close'][$i]; //if trading day is open the last value in this array is the CURRENT price, do -2 to get most recent closing price
-    //     $allDates[$i] = date("M j Y", $json['chart']['result'][0]['timestamp'][$i]); //if trading day is open the last value in this array is the CURRENT date, do -2 to get previous date    
-    // }
-
     $j = 0;
     $h = 0;
     $SMAtemp = array();

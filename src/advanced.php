@@ -84,10 +84,9 @@ if (isset($_GET['Search'])) {
         } else {
             displayGraphwSMA($stockName, $dates, $prices, $prevClose);
         }
-
 ?>
 
-        <div style="column-count: 2;">
+        <div style="column-count: 2; font-size: 10px;">
             <?PHP displayStockData($stockName); ?>
         </div>
 
@@ -151,7 +150,7 @@ if (isset($_GET['Search'])) {
 <?PHP
 }
 
-require("includes/footer.php");
+// require("includes/footer.php");
 ?>
 
 </html>

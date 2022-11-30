@@ -2,12 +2,10 @@
 error_reporting(E_ALL);
 ini_set('display_errors','On');
 
-$anData = array(0,5,10,15,20,25,30,35,40,45,50,55);
+//closing prices! function forecastHoltWinters($anData, $nForecast = 1, $nSeasonLength = 1, $nAlpha =     0.2, $nBeta = 0.01, $nGamma = 0.01, $nDevGamma = 0.1) {
 
-print_r(forecastHoltWinters($anData));
 
 function forecastHoltWinters($anData, $nForecast = 1, $nSeasonLength = 1, $nAlpha =     0.2, $nBeta = 0.01, $nGamma = 0.01, $nDevGamma = 0.1) {
-
 // Calculate an initial trend level
 $nTrend1 = 0;
 for($i = 0; $i < $nSeasonLength; $i++) {
@@ -74,4 +72,3 @@ for($i = 1; $i <= $nForecast; $i++) {
 
 return $anForecast;
 }
-?>
