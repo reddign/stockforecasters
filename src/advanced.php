@@ -3,6 +3,8 @@ require("functions/basic_html_functions.php");
 require("includes/header.php");
 require("functions/graphingFunctions.php");
 require("functions/stockNews.php");
+require("functions/prediction_functions.php");
+
 
 
 display_small_page_heading("Advanced", "");
@@ -79,9 +81,15 @@ if (isset($_GET['Search'])) {
     if (empty($_GET['Intstock1'])) {
         //this means there is only one stock
         // displayGraph($stockName, $dates, $prices, $prevClose);
-        if (strcmp($_GET['timeframe'],"1d")==0 || strcmp($_GET['timeframe'],"5d")==0 || strcmp($_GET['timeframe'],"1mo")==0 || strcmp($_GET['timeframe'],"3mo")==0){
+        if (strcmp($_GET['timeframe'],"1d")==0){
             displayGraph($stockName, $dates, $prices, $prevClose);
+        }
+        else if((strcmp($_GET['timeframe'],"5d")==0 || strcmp($_GET['timeframe'],"1mo")==0 || strcmp($_GET['timeframe'],"3mo")==0)) {
+            //display graph + predictions
+            displayGraphwPrediction($stockName, $dates, $prices, $prevClose);
+
         } else {
+            //display graph + predictions + sma
             displayGraphwSMA($stockName, $dates, $prices, $prevClose);
         }
 ?>
@@ -121,8 +129,12 @@ if (isset($_GET['Search'])) {
         //displayGraph($stockName, $dates, $prices, $prevClose);
         //displayGraph($stockName1, $dates1, $prices1, $prevClose1);
 
-        if (strcmp($_GET['timeframe'],"1d")==0 || strcmp($_GET['timeframe'],"5d")==0 || strcmp($_GET['timeframe'],"1mo")==0 || strcmp($_GET['timeframe'],"3mo")==0){
+        if (strcmp($_GET['timeframe'],"1d")==0){
             displayGraphmultiple($stockName, $dates, $prices, $prevClose, $stockName1, $dates1, $prices1, $prevClose1);
+        }
+        else if((strcmp($_GET['timeframe'],"5d")==0 || strcmp($_GET['timeframe'],"1mo")==0 || strcmp($_GET['timeframe'],"3mo")==0)) {
+            //graph 2 stocks with predictions
+            displayGraphmultiplewPredictions($stockName, $dates, $prices, $prevClose, $stockName1, $dates1, $prices1, $prevClose1);
         } else {
             displayGraphmultiplewSMA($stockName, $dates, $prices, $prevClose, $stockName1, $dates1, $prices1, $prevClose1);
         }

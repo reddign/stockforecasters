@@ -2,9 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors','On');
 
-//closing prices! function forecastHoltWinters($anData, $nForecast = 1, $nSeasonLength = 1, $nAlpha =     0.2, $nBeta = 0.01, $nGamma = 0.01, $nDevGamma = 0.1) {
-
-
+//this uses close prices
 function forecastHoltWinters($anData, $nForecast = 1, $nSeasonLength = 1, $nAlpha =     0.2, $nBeta = 0.01, $nGamma = 0.01, $nDevGamma = 0.1) {
 // Calculate an initial trend level
 $nTrend1 = 0;
