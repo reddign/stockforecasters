@@ -22,13 +22,13 @@ display_small_page_heading("Login","");
         if($_GET["error"] == "emptyinput"){
             echo "<p> Fill in all fields! <p>";
         }
-        else if($_GET["error"] == "IncorrectPassword"){
-            echo "<p> Incorrect Password!<p>";
-        }
-        //i added this
         else if($_GET["error"] == "loginError"){
             echo "<p> Login Error!<p>";
         }
+        else if($_GET["error"] == "IncorrectPassword"){
+            echo "<p> Incorrect Password!<p>";
+        }
+
     }
 
 ?>
