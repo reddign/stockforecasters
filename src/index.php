@@ -43,10 +43,15 @@ display_small_page_heading("EC Stock Forecasters");
 </h3>
 
 <h1> News </h1>
-<?PHP displayMarketNews(); ?>
+<?PHP
+displayMarketNews();
+// echo "<br><br>NOTE: We are not finanical advisors. The information presented on this website should be used for educational purposes ONLY.<br>";
+?>
+
 
 </html>
-
+<br>
+<div style="font-size:10px">NOTE: We are not finanical advisors. The information presented on this website should be used for educational purposes ONLY.</div>
 <?PHP
 require("includes/footer.php");
 ?>
