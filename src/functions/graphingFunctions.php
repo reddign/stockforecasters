@@ -584,7 +584,8 @@ function SMA50DAY($allClosePrices)
     return $SMA;
 }
 
-function getPredictionPrices($stockName = ""){
+function getPredictionPrices($stockName = "")
+{
 
     //ONLY return array of 5 prices
     $url = 'https://query1.finance.yahoo.com/v8/finance/chart/' . $stockName . '?region=US&lang=en-US&includePrePost=false&interval=1d&useYfid=true&range=5y';
@@ -612,8 +613,9 @@ function getPredictionPrices($stockName = ""){
     return $all_predictions_prices;
 }
 
-function getPredictionDates(){
-    
+function getPredictionDates()
+{
+
     //ONLY return array of 5 dates
     $all_prediction_dates = array();
     for ($i = 0; $i < 5; $i++) {
@@ -628,7 +630,7 @@ function displayGraphwPrediction($stockName = "", $dates, $prices, $prevClose)
 
     $prediction_dates = getPredictionDates();
     $prediction_prices = getPredictionPrices($stockName);
-    $allDates = array_merge($dates,$prediction_dates);
+    $allDates = array_merge($dates, $prediction_dates);
 
     $k = 0;
     $tempArray = array();
@@ -720,7 +722,7 @@ function displayGraphmultiplewPredictions($stockName = "", $dates, $prices, $pre
     $prediction_dates = getPredictionDates();
     $prediction_prices = getPredictionPrices($stockName);
 
-    $allDates = array_merge($dates,$prediction_dates);
+    $allDates = array_merge($dates, $prediction_dates);
 
     $k = 0;
     $tempArray = array();
@@ -758,32 +760,34 @@ function displayGraphmultiplewPredictions($stockName = "", $dates, $prices, $pre
         const data = {
             labels: labels,
             datasets: [{
-                label: "<?php echo $stockName; ?>",
-                backgroundColor: 'rgb(0, 188, 212)',
-                borderColor: 'rgb(0, 188, 212)',
-                data: <?php echo json_encode($prices); ?>,
-            },
-            {
+                    label: "<?php echo $stockName; ?>",
+                    backgroundColor: 'rgb(0, 188, 212)',
+                    borderColor: 'rgb(0, 188, 212)',
+                    data: <?php echo json_encode($prices); ?>,
+                },
+                {
                     label: "<?php echo $stockName; ?> 5 Day Prediction",
                     backgroundColor: 'rgb(245, 121, 5)',
                     borderColor: 'rgb(245, 121, 5)',
                     data: <?php echo json_encode($prediction_prices); ?>,
-                }]
+                }
+            ]
         };
         const data1 = {
             labels: labels1,
             datasets: [{
-                label: "<?php echo $stockName1; ?>",
-                backgroundColor: 'rgb(47, 82, 143)',
-                borderColor: 'rgb(47, 82, 143)',
-                data: <?php echo json_encode($prices1); ?>,
-            },
-            {
+                    label: "<?php echo $stockName1; ?>",
+                    backgroundColor: 'rgb(47, 82, 143)',
+                    borderColor: 'rgb(47, 82, 143)',
+                    data: <?php echo json_encode($prices1); ?>,
+                },
+                {
                     label: "<?php echo $stockName1; ?> 5 Day Prediction",
                     backgroundColor: 'rgb(245, 121, 5)',
                     borderColor: 'rgb(245, 121, 5)',
                     data: <?php echo json_encode($prediction_prices1); ?>,
-                }]
+                }
+            ]
         };
 
         const config = {
@@ -869,6 +873,17 @@ function displayGraphmultiplewPredictions($stockName = "", $dates, $prices, $pre
 
 function displayGraphwSMA_Predictions($stockName = "", $dates, $prices, $prevClose)
 {
+    $prediction_dates = getPredictionDates();
+    $prediction_prices = getPredictionPrices($stockName);
+    $allDates = array_merge($dates, $prediction_dates);
+
+    $k = 0;
+    $tempArray = array();
+    for ($k = 0; $k < count($prices); $k++) {
+        $tempArray[$k] = null;
+    }
+
+    $prediction_prices = array_merge($tempArray, $prediction_prices);
 
     displayName($stockName, $dates, $prices, $prevClose);
 
@@ -881,7 +896,7 @@ function displayGraphwSMA_Predictions($stockName = "", $dates, $prices, $prevClo
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        const labels = <?php echo json_encode($dates); ?>;
+        const labels = <?php echo json_encode($allDates); ?>;
 
         const data = {
             labels: labels,
@@ -896,7 +911,14 @@ function displayGraphwSMA_Predictions($stockName = "", $dates, $prices, $prevClo
                     backgroundColor: 'rgb(160, 32, 240)',
                     borderColor: 'rgb(160, 32, 240)',
                     data: <?php echo json_encode($SMA); ?>,
+                },
+                {
+                    label: "<?php echo $stockName; ?> 5 Day Prediction",
+                    backgroundColor: 'rgb(245, 121, 5)',
+                    borderColor: 'rgb(245, 121, 5)',
+                    data: <?php echo json_encode($prediction_prices); ?>,
                 }
+
             ]
         };
 
@@ -939,6 +961,176 @@ function displayGraphwSMA_Predictions($stockName = "", $dates, $prices, $prevClo
     </script>
 
     </html>
+
+<?PHP
+
+}
+function displayGraphmultiplewSMA_Predictions($stockName = "", $dates, $prices, $prevClose, $stockName1 = "", $dates1, $prices1, $prevClose1)
+{
+
+    //stock
+    $prediction_dates = getPredictionDates();
+    $prediction_prices = getPredictionPrices($stockName);
+
+    $allDates = array_merge($dates, $prediction_dates);
+
+    $k = 0;
+    $tempArray = array();
+    for ($k = 0; $k < count($prices); $k++) {
+        $tempArray[$k] = null;
+    }
+
+    $prediction_prices = array_merge($tempArray, $prediction_prices);
+
+
+    //stock 1
+    $prediction_prices1 = getPredictionPrices($stockName1);
+    $prediction_prices1 = array_merge($tempArray, $prediction_prices1);
+
+    displayName($stockName, $dates, $prices, $prevClose);
+    displayName($stockName1, $dates1, $prices1, $prevClose1);
+
+    $SMA = SMA50DAY($prices);
+    $SMA1 = SMA50DAY($prices1);
+
+?>
+
+
+
+    <div style="height: 45%; width: 45%;display:inline-block;">
+        <canvas id="stockChart"></canvas>
+    </div>
+    <div style="height: 10%; width: 45%;margin-left:5%;display:inline-block;">
+        <canvas id="stockChart1"></canvas>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const labels = <?php echo json_encode($allDates); ?>;
+        const labels1 = <?php echo json_encode($allDates); ?>;
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                    label: "<?php echo $stockName; ?>",
+                    backgroundColor: 'rgb(0, 188, 212)',
+                    borderColor: 'rgb(0, 188, 212)',
+                    data: <?php echo json_encode($prices); ?>,
+                },
+                {
+                    label: "50 Day SMA",
+                    backgroundColor: 'rgb(160, 32, 240)',
+                    borderColor: 'rgb(160, 32, 240)',
+                    data: <?php echo json_encode($SMA); ?>,
+                },
+                {
+                    label: "<?php echo $stockName; ?> 5 Day Prediction",
+                    backgroundColor: 'rgb(245, 121, 5)',
+                    borderColor: 'rgb(245, 121, 5)',
+                    data: <?php echo json_encode($prediction_prices); ?>,
+                }
+            ]
+        };
+        const data1 = {
+            labels: labels1,
+            datasets: [{
+                    label: "<?php echo $stockName1; ?>",
+                    backgroundColor: 'rgb(0, 188, 212)',
+                    borderColor: 'rgb(0, 188, 212)',
+                    data: <?php echo json_encode($prices1); ?>,
+                },
+                {
+                    label: "50 Day SMA",
+                    backgroundColor: 'rgb(160, 32, 240)',
+                    borderColor: 'rgb(160, 32, 240)',
+                    data: <?php echo json_encode($SMA1); ?>,
+                },
+                {
+                    label: "<?php echo $stockName; ?> 5 Day Prediction",
+                    backgroundColor: 'rgb(245, 121, 5)',
+                    borderColor: 'rgb(245, 121, 5)',
+                    data: <?php echo json_encode($prediction_prices1); ?>,
+                }
+            ]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                elements: {
+                    point: {
+                        radius: 0
+                    }
+                },
+
+                hover: {
+                    mode: 'index',
+                    intersect: false
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            display: false
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+
+            }
+        };
+
+        const config1 = {
+            type: 'line',
+            data: data1,
+            options: {
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                elements: {
+                    point: {
+                        radius: 0
+                    }
+                },
+
+                hover: {
+                    mode: 'index',
+                    intersect: false
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            display: false
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+
+            }
+        };
+
+        const myChart = new Chart(
+            document.getElementById('stockChart'),
+            config
+        );
+        const myChart1 = new Chart(
+            document.getElementById('stockChart1'),
+            config1
+        );
+    </script>
+
 
 <?PHP
 
