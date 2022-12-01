@@ -43,10 +43,9 @@ else {
             <summary>Read me!</summary>
             <div style="font-style: italic; font-size: 13px">
                 - You can display the graph of up to two stocks. Leave the second text box exmpty if you only want to display one stock <br>
-                - The 50 day SMA will be graphed by default. If you want to hide it simply click on it in the graph legend. SMA is graphed on time frames 6 months and longer.<br>
-                - If you want to graph future predictions of a stock enter the future predictior code in the second text box. <br>
-                - Future predictor codes: codes coming soon... <br>
-            </div>
+                - The 50 day SMA will be graphed by default. If you want to hide it simply click on it in the graph legend. SMA is graphed on time frames 6 months and longer <br>
+                - The prediction line will be graphed by default. If you want to hide it simply click on it in the graph legend. Predictions are graphed on time frames 5 days and longer <br>
+                </div>
         </details>
 
 
@@ -92,7 +91,7 @@ else {
             }
     ?>
 
-            <div style="column-count: 2; font-size: 10px;">
+            <div style="column-count: 2;">
                 <?PHP displayStockData($stockName); ?>
             </div>
 
@@ -139,7 +138,7 @@ else {
 
         ?>
 
-            <div style="column-count: 4; font-size:13px;">
+            <div style="column-count: 4; font-size:11px;">
                 <?PHP displayStockData($stockName); ?>
                 <?PHP displayStockData($stockName1); ?>
             </div>

@@ -36,17 +36,17 @@ if (isset($_GET['Search'])) {
 
 <details>
   <summary>What is a stock?</summary>
-  <p style="font-size:13px; font-style: italic;">- A stock is a type of investment that represents a share of ownership in a company. Investors buy stocks in the hopes that they company stock price will rise, making a profit in the long term. </p>
+  <p style="font-size:13px; font-style: italic;">- A stock is a type of investment that represents a share of ownership in a company. Investors buy stocks in the hopes that the company stock price will rise, making a profit in the long term. </p>
 </details>
 
 <details>
   <summary>How do I know what the symbol is for each stock?</summary>
-  <p style="font-size:13px; font-style: italic;"> - It's easy! Just use our stock search tool above. Just type in the name of a company and the ticker symbol will appear. You can then use the stock ticker in the intermediate and advanced sections to look up more information of the stock.</p>
+  <p style="font-size:13px; font-style: italic;"> - It's easy! Just use our stock search tool above. Just type in the name of a company and the ticker symbol will appear. You can then use the stock ticker in the intermediate and advanced sections to look up more information.</p>
 </details>
 
 <details>
   <summary>What is an ETF?</summary>
-  <p style="font-size:13px; font-style: italic;">- ETF, or Exchange-Traded Fund, An exchange-traded fund (ETF) is an investment instrument that comprises a basket of securities, such as stocks, bonds, derivative products, and more recently, Bitcoin futures, which can be purchased or sold in a single trade on a stock exchange.</p>
+  <p style="font-size:13px; font-style: italic;">- ETF or Exchange-Traded Fund, is an investment instrument that comprises a basket of securities, such as stocks, bonds, derivative products, and more recently, Bitcoin futures, which can be purchased or sold in a single trade on a stock exchange.</p>
 </details>
 
 <details>
@@ -86,7 +86,7 @@ if (isset($_GET['Search'])) {
 
 <details>
   <summary>How long should I own a particular stock for?</summary>
-  <p style="font-size:13px; font-style: italic;">- Every stock is different, and the stock market is ever-changing. Any particular stock can go up 50$ one day, and then drop 100$ the next day. There is no set time to keep a stock, but it is recommended to sell it when a suitable profit has been achieved. Long-term investing is often the best course of action.</p>
+  <p style="font-size:13px; font-style: italic;">- Every stock is different, and the stock market is ever-changing. Any particular stock can go up one day, and then drop the next day. There is no set time to keep a stock, but it is recommended to sell it when a suitable profit has been achieved. Long-term investing is often the best course of action.</p>
 </details>
 
 <details>

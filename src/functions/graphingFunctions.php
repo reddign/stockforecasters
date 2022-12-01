@@ -549,11 +549,11 @@ function displayStockData($stockName)
 
     //This gets rest of stock data like PE, do not print index 12 and 14
     for ($i = 0; $i < 16; $i++) {
-        if($i==12 || $i==14) continue;
+        // if($i==12 || $i==14) continue;
         $stockDataList = $html->find('td[class="Ta(end) Fw(600) Lh(14px)"]', $i);
         $stockDataListName = $html->find('td[class="C($primaryColor) W(51%)"]', $i);
         echo $stockDataListName . ": " . $stockDataList . "<br>";
-        if ($i == 6) echo "<br>";
+        if ($i == 7) echo "<br>";
     }
     echo "<br>";
 }
