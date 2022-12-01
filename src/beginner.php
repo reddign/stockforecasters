@@ -136,5 +136,5 @@ if (isset($_GET['Search'])) {
 </html>
 
 <?PHP
-require("includes/footer.php");
+// require("includes/footer.php");
 ?>
