@@ -1,6 +1,6 @@
 <?php
-require("../../config.php");
-// require("../../../stocks_config.php");
+// require("../../config.php");
+require("../../../stocks_config.php");
 
 
 $conn = mysqli_connect($databasehost, $databaseuser, $databasepassword, $database);
