@@ -36,5 +36,5 @@ display_small_page_heading("Login","");
 </html>
  
 <?PHP
-require("includes/footer.php");
+// require("includes/footer.php");
 ?>

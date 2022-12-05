@@ -59,5 +59,5 @@ display_small_page_heading("Create Account", "");
 </html>
 
 <?PHP
-require("includes/footer.php");
+// require("includes/footer.php");
 ?>

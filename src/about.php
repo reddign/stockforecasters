@@ -35,5 +35,5 @@ More indicators <br>
 </html>
 
 <?PHP
-require("includes/footer.php");
+// require("includes/footer.php");
 ?>

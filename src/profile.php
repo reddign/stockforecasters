@@ -90,6 +90,6 @@ session_start();
   </h5>
 
   <?PHP
-  require("includes/footer.php");
+  // require("includes/footer.php");
   }
   ?>

@@ -31,6 +31,5 @@ display_small_page_heading("Help", "");
 </html>
 
 <?PHP
-require("includes/footer.php");
+// require("includes/footer.php");
 ?>
-a
