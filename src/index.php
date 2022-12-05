@@ -51,7 +51,7 @@ displayMarketNews();
 
 </html>
 <br>
-<div style="font-size:10px">NOTE: We are not finanical advisors. The information presented on this website should be used for educational purposes ONLY.</div>
+<div style="font-size:10px">NOTE: We are not financial advisors. The information presented on this website should be used for educational purposes ONLY.</div>
 <?PHP
 require("includes/footer.php");
 ?>
